@@ -168,9 +168,8 @@ Le site est entièrement responsive avec :
 ## 📞 Support
 
 Pour toute question ou problème :
-- Email : contact@csppneu.fr
-- Téléphone : 01 23 45 67 89
-
+- Email : contact tarek
+- Téléphone : 
 ## 📄 Licence
 
 MIT License - Voir le fichier LICENSE pour plus de détails.
