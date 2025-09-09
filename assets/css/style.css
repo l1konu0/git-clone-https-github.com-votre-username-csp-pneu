@@ -244,6 +244,74 @@ body {
     width: 100%;
 }
 
+/* About Us Section */
+.about-us {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.about-us h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b91c1c;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image i {
+    font-size: 8rem;
+    color: #b91c1c;
+    opacity: 0.8;
+}
+
 /* Features Section */
 .features {
     padding: 5rem 0;
@@ -350,17 +418,41 @@ body {
     border-radius: 15px;
     font-weight: 600;
     color: #4a5568;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.08);
+    box-shadow: 0 4px 15px rgba(185, 28, 28, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .brand-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    box-shadow: 0 8px 25px rgba(185, 28, 28, 0.15);
     color: #2d3748;
-    border-color: rgba(102, 126, 234, 0.2);
+    border-color: rgba(185, 28, 28, 0.2);
+}
+
+.brand-logo {
+    width: 50px;
+    height: 50px;
+    background: #b91c1c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.brand-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 /* CTA Section */
@@ -1378,6 +1470,20 @@ body {
     
     .form-actions {
         flex-direction: column;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .about-image i {
+        font-size: 4rem;
     }
 }
 
