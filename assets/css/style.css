@@ -1503,6 +1503,23 @@ body {
     .ai-wheel i {
         font-size: 20px;
     }
+    
+    .cart-wheel {
+        width: 50px;
+        height: 50px;
+        top: 15px;
+        right: 75px;
+    }
+    
+    .cart-wheel i {
+        font-size: 20px;
+    }
+    
+    .cart-count {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
 }
 
 /* Boutons de navigation */
@@ -1558,6 +1575,61 @@ body {
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Panier flottant */
+.cart-wheel {
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 3px solid #ffffff;
+    position: relative;
+}
+
+.cart-wheel:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+}
+
+.cart-wheel i {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #b91c1c;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
 
