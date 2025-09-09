@@ -133,7 +133,7 @@ csp-pneu/
 ## 🎨 Design
 
 Le site utilise un design moderne avec :
-- **Palette de couleurs** : Dégradés bleu-violet-rose
+- **Palette de couleurs** : a modifier partir du jaune gris rouge blanc noir j:fbbf24;
 - **Typographie** : Inter + Roboto
 - **Animations** : Transitions fluides et effets de survol
 - **Responsive** : Mobile-first design
