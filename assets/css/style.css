@@ -9,7 +9,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #1a1a1a;
-    background: #ffffff;
+    background: #f8f9fa;
     min-height: 100vh;
     font-size: 16px;
 }
@@ -22,7 +22,7 @@ body {
 
 /* Header */
 .header {
-    background: #dc2626;
+    background: #b91c1c;
     color: white;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -115,7 +115,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: #dc2626;
+    background: #b91c1c;
     color: white;
     padding: 6rem 0;
     display: flex;
@@ -202,8 +202,8 @@ body {
 }
 
 .btn-primary {
-    background: #dc2626;
-    color: #ffffff;
+    background: #b91c1c;
+    color: #f8f9fa;
     border: none;
     font-weight: 600;
     border-radius: 8px;
@@ -213,7 +213,7 @@ body {
 .btn-primary:hover {
     background: #991b1b;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
 }
 
 .btn-secondary {
@@ -247,7 +247,7 @@ body {
 /* Features Section */
 .features {
     padding: 5rem 0;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    background: #f8f9fa;
     position: relative;
 }
 
@@ -366,7 +366,7 @@ body {
 /* CTA Section */
 .cta {
     padding: 6rem 0;
-    background: #dc2626;
+    background: #b91c1c;
     color: white;
     text-align: center;
     position: relative;
@@ -405,7 +405,7 @@ body {
 
 /* Services */
 .services-header, .catalog-header, .contact-header {
-    background: #dc2626;
+    background: #b91c1c;
     color: white;
     padding: 5rem 0;
     text-align: center;
@@ -1065,7 +1065,7 @@ body {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: #dc2626;
+    color: #b91c1c;
     font-weight: 600;
 }
 
@@ -1383,9 +1383,9 @@ body {
 
 /* Boutons de navigation */
 .btn-login, .btn-ai {
-    background: #ffffff;
-    color: #dc2626;
-    border: 1px solid #ffffff;
+    background: #f8f9fa;
+    color: #b91c1c;
+    border: 1px solid #f8f9fa;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-weight: 500;
@@ -1396,19 +1396,19 @@ body {
 
 .btn-login:hover, .btn-ai:hover {
     background: #000000;
-    color: #ffffff;
+    color: #f8f9fa;
     border-color: #000000;
 }
 
 .btn-ai {
     background: #000000;
-    color: #ffffff;
+    color: #f8f9fa;
     border-color: #000000;
 }
 
 .btn-ai:hover {
-    background: #dc2626;
-    border-color: #dc2626;
+    background: #b91c1c;
+    border-color: #b91c1c;
 }
 
 /* Titres modernes */
@@ -1427,6 +1427,6 @@ body {
 
 .feature-card:hover, .service-card:hover, .pricing-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.15);
-    border-color: #dc2626;
+    box-shadow: 0 8px 30px rgba(185, 28, 28, 0.15);
+    border-color: #b91c1c;
 }
