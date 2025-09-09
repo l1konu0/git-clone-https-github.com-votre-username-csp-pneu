@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - CSP Pneu</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">
+                        <i class="fas fa-tire"></i>
+                        <span>CSP Pneu</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="catalog.html" class="nav-link">Catalogue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../admin/" class="nav-link admin-link">Admin</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="catalog-header">
+            <div class="container">
+                <h1>Notre catalogue de pneus</h1>
+                <p>Découvrez notre large gamme de pneus pour tous types de véhicules</p>
+            </div>
+        </section>
+
+        <section class="catalog-filters">
+            <div class="container">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="marque">Marque :</label>
+                        <select id="marque" name="marque">
+                            <option value="">Toutes les marques</option>
+                            <option value="Michelin">Michelin</option>
+                            <option value="Bridgestone">Bridgestone</option>
+                            <option value="Continental">Continental</option>
+                            <option value="Pirelli">Pirelli</option>
+                            <option value="Goodyear">Goodyear</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type">Type :</label>
+                        <select id="type" name="type">
+                            <option value="">Tous les types</option>
+                            <option value="été">Été</option>
+                            <option value="hiver">Hiver</option>
+                            <option value="4saisons">4 saisons</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="prix">Prix max :</label>
+                        <input type="range" id="prix" name="prix" min="50" max="500" value="500">
+                        <span id="prix-value">500€</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-grid">
+            <div class="container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Les produits seront chargés dynamiquement via JavaScript -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Chargement des produits...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>CSP Pneu</h3>
+                    <p>Votre spécialiste pneus depuis 1995. Qualité, service et expertise au rendez-vous.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Montage de pneus</a></li>
+                        <li><a href="services.html">Équilibrage</a></li>
+                        <li><a href="services.html">Géométrie</a></li>
+                        <li><a href="services.html">Réparation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Rue des Pneus, 75000 Paris</li>
+                        <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                        <li><i class="fas fa-envelope"></i> contact@csppneu.fr</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <ul>
+                        <li>Lun - Ven : 8h - 18h</li>
+                        <li>Samedi : 8h - 17h</li>
+                        <li>Dimanche : Fermé</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CSP Pneu. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/catalog.js"></script>
+</body>
+</html>

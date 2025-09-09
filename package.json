@@ -1,0 +1,25 @@
+{
+  "name": "csp-pneu",
+  "version": "1.0.0",
+  "description": "Site web CSP Pneu - Spécialiste pneus",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build completed'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "pneus",
+    "automobile",
+    "catalogue",
+    "e-commerce"
+  ],
+  "author": "CSP Pneu",
+  "license": "MIT",
+  "devDependencies": {
+    "@vercel/node": "^3.0.0"
+  },
+  "dependencies": {
+    "mysql2": "^3.6.0"
+  }
+}

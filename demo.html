@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Pneu - Votre spécialiste pneus</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#accueil">
+                        <i class="fas fa-tire"></i>
+                        <span>CSP Pneu</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#accueil" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#catalogue" class="nav-link">Catalogue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <h1>Bienvenue chez CSP Pneu</h1>
+                <p>Votre spécialiste pneus depuis 1995. Qualité, service et expertise au rendez-vous.</p>
+                <div class="hero-buttons">
+                    <a href="#catalogue" class="btn btn-primary">Voir notre catalogue</a>
+                    <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-car"></i>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Pourquoi choisir CSP Pneu ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Expertise technique</h3>
+                        <p>Plus de 25 ans d'expérience dans le domaine des pneus et de la mécanique automobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Garantie qualité</h3>
+                        <p>Tous nos pneus sont garantis et montés par des professionnels qualifiés.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Service rapide</h3>
+                        <p>Montage et équilibrage en moins de 30 minutes pour la plupart des véhicules.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <h3>Prix compétitifs</h3>
+                        <p>Les meilleurs prix du marché avec des promotions régulières.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalogue Section -->
+        <section class="catalog-header" id="catalogue">
+            <div class="container">
+                <h1>Notre catalogue de pneus</h1>
+                <p>Découvrez notre large gamme de pneus pour tous types de véhicules</p>
+            </div>
+        </section>
+
+        <section class="catalog-filters">
+            <div class="container">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="marque">Marque :</label>
+                        <select id="marque" name="marque">
+                            <option value="">Toutes les marques</option>
+                            <option value="michelin">Michelin</option>
+                            <option value="bridgestone">Bridgestone</option>
+                            <option value="continental">Continental</option>
+                            <option value="pirelli">Pirelli</option>
+                            <option value="goodyear">Goodyear</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type">Type :</label>
+                        <select id="type" name="type">
+                            <option value="">Tous les types</option>
+                            <option value="été">Été</option>
+                            <option value="hiver">Hiver</option>
+                            <option value="4saisons">4 saisons</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="prix">Prix max :</label>
+                        <input type="range" id="prix" name="prix" min="50" max="500" value="500">
+                        <span id="prix-value">500€</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-grid">
+            <div class="container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Pneus de démonstration -->
+                    <div class="product-card" data-marque="michelin" data-type="été" data-prix="89.90">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Michelin Energy Saver+</h3>
+                            <p class="product-specs">205/55 R16 - Été</p>
+                            <p class="product-description">Pneu été haute performance avec faible résistance au roulement</p>
+                            <div class="product-price">
+                                <span class="price">89,90€</span>
+                                <span class="stock">Stock: 15</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(1)">Demander un devis</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="bridgestone" data-type="été" data-prix="95.50">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Bridgestone Turanza T005</h3>
+                            <p class="product-specs">215/60 R17 - Été</p>
+                            <p class="product-description">Confort et sécurité optimaux pour tous types de véhicules</p>
+                            <div class="product-price">
+                                <span class="price">95,50€</span>
+                                <span class="stock">Stock: 12</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(2)">Demander un devis</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="continental" data-type="hiver" data-prix="78.90">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Continental WinterContact TS 860</h3>
+                            <p class="product-specs">205/55 R16 - Hiver</p>
+                            <p class="product-description">Pneu hiver premium pour une sécurité maximale</p>
+                            <div class="product-price">
+                                <span class="price">78,90€</span>
+                                <span class="stock">Stock: 8</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(3)">Demander un devis</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="pirelli" data-type="été" data-prix="125.00">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Pirelli P Zero</h3>
+                            <p class="product-specs">225/45 R18 - Été</p>
+                            <p class="product-description">Pneu sport haute performance pour véhicules sportifs</p>
+                            <div class="product-price">
+                                <span class="price">125,00€</span>
+                                <span class="stock">Stock: 6</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(4)">Demander un devis</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="goodyear" data-type="4saisons" data-prix="92.00">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Goodyear EfficientGrip Performance</h3>
+                            <p class="product-specs">215/60 R17 - 4 saisons</p>
+                            <p class="product-description">Pneu 4 saisons pour un usage toute l'année</p>
+                            <div class="product-price">
+                                <span class="price">92,00€</span>
+                                <span class="stock">Stock: 20</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(5)">Demander un devis</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="dunlop" data-type="été" data-prix="135.50">
+                        <div class="product-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Dunlop Sport Maxx RT2</h3>
+                            <p class="product-specs">235/40 R19 - Été</p>
+                            <p class="product-description">Pneu sport ultra haute performance</p>
+                            <div class="product-price">
+                                <span class="price">135,50€</span>
+                                <span class="stock">Stock: 4</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="contactPneu(6)">Demander un devis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-header" id="services">
+            <div class="container">
+                <h1>Nos services</h1>
+                <p>Des services complets pour vos pneus et votre véhicule</p>
+            </div>
+        </section>
+
+        <section class="services-grid">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Vente de pneus</h3>
+                    <p>Large gamme de pneus toutes marques pour voitures, motos, utilitaires et poids lourds.</p>
+                    <ul>
+                        <li>Pneus été, hiver et 4 saisons</li>
+                        <li>Toutes les dimensions disponibles</li>
+                        <li>Marques premium et économiques</li>
+                        <li>Conseils personnalisés</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Montage de pneus</h3>
+                    <p>Montage professionnel de vos pneus par nos techniciens qualifiés.</p>
+                    <ul>
+                        <li>Montage sur jantes acier et aluminium</li>
+                        <li>Démontage et remontage</li>
+                        <li>Vérification de l'état des jantes</li>
+                        <li>Gonflage à la pression recommandée</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Équilibrage</h3>
+                    <p>Équilibrage précis de vos roues pour un confort de conduite optimal.</p>
+                    <ul>
+                        <li>Équilibrage statique et dynamique</li>
+                        <li>Machines de dernière génération</li>
+                        <li>Contrôle de la géométrie</li>
+                        <li>Réglage des masses</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Géométrie</h3>
+                    <p>Contrôle et réglage de la géométrie de votre véhicule.</p>
+                    <ul>
+                        <li>Contrôle de parallélisme</li>
+                        <li>Réglage de carrossage</li>
+                        <li>Réglage de chasse</li>
+                        <li>Rapport de géométrie détaillé</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Stockage de pneus</h3>
+                    <p>Stockage sécurisé de vos pneus hors saison.</p>
+                    <ul>
+                        <li>Stockage été/hiver</li>
+                        <li>Conditions optimales</li>
+                        <li>Identification personnalisée</li>
+                        <li>Rappel automatique</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Dépannage</h3>
+                    <p>Service de dépannage 24h/24 pour vos urgences pneus.</p>
+                    <ul>
+                        <li>Changement de roue de secours</li>
+                        <li>Réparation de crevaison</li>
+                        <li>Livraison de pneus d'urgence</li>
+                        <li>Service mobile</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-header" id="contact">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p>Une question ? Un devis ? N'hésitez pas à nous contacter</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Informations de contact</h2>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Adresse</h3>
+                                <p>123 Rue de la Route<br>75000 Paris, France</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Téléphone</h3>
+                                <p>01 23 45 67 89</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>contact@csppneu.fr</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Horaires</h3>
+                                <p>Lun - Ven: 8h00 - 18h00<br>Samedi: 8h00 - 17h00<br>Dimanche: Fermé</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Envoyez-nous un message</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="nom">Nom *</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="sujet">Sujet</label>
+                                <select id="sujet" name="sujet">
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="devis">Demande de devis</option>
+                                    <option value="info">Information produit</option>
+                                    <option value="service">Service après-vente</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Besoin de nouveaux pneus ?</h2>
+                    <p>Consultez notre catalogue en ligne ou venez nous rendre visite en magasin.</p>
+                    <a href="#catalogue" class="btn btn-primary btn-large">Découvrir nos pneus</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>CSP Pneu</h3>
+                <p>Votre spécialiste pneus depuis 1995. Qualité, service et expertise au rendez-vous.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Vente de pneus</a></li>
+                    <li><a href="#services">Montage</a></li>
+                    <li><a href="#services">Équilibrage</a></li>
+                    <li><a href="#services">Géométrie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Route, 75000 Paris</p>
+                <p><i class="fas fa-phone"></i> 01 23 45 67 89</p>
+                <p><i class="fas fa-envelope"></i> contact@csppneu.fr</p>
+            </div>
+            <div class="footer-section">
+                <h4>Horaires</h4>
+                <p>Lun - Ven: 8h00 - 18h00</p>
+                <p>Samedi: 8h00 - 17h00</p>
+                <p>Dimanche: Fermé</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CSP Pneu. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Filtres du catalogue
+            const marqueFilter = document.getElementById('marque');
+            const typeFilter = document.getElementById('type');
+            const prixFilter = document.getElementById('prix');
+            const prixValue = document.getElementById('prix-value');
+            const products = document.querySelectorAll('.product-card');
+
+            function filterProducts() {
+                const marqueValue = marqueFilter.value.toLowerCase();
+                const typeValue = typeFilter.value.toLowerCase();
+                const prixValue = parseInt(prixFilter.value);
+
+                products.forEach(product => {
+                    const productMarque = product.dataset.marque.toLowerCase();
+                    const productType = product.dataset.type.toLowerCase();
+                    const productPrix = parseInt(product.dataset.prix);
+
+                    const marqueMatch = !marqueValue || productMarque.includes(marqueValue);
+                    const typeMatch = !typeValue || productType.includes(typeValue);
+                    const prixMatch = productPrix <= prixValue;
+
+                    if (marqueMatch && typeMatch && prixMatch) {
+                        product.style.display = 'block';
+                        product.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+
+            if (marqueFilter && typeFilter && prixFilter) {
+                marqueFilter.addEventListener('change', filterProducts);
+                typeFilter.addEventListener('change', filterProducts);
+                prixFilter.addEventListener('input', function() {
+                    prixValue.textContent = this.value + '€';
+                    filterProducts();
+                });
+            }
+        });
+
+        function contactPneu(pneuId) {
+            alert('Fonctionnalité de contact pour le pneu ID: ' + pneuId + '\n\nDans la version complète, vous serez redirigé vers la page de contact.');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des cartes au scroll
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.feature-card, .service-card, .product-card');
+            const windowHeight = window.innerHeight;
+            
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < windowHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialiser les cartes comme invisibles
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card, .service-card, .product-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Animer au scroll
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Animer les cartes visibles au chargement
+        });
+
+        // Animation CSS pour les cartes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
