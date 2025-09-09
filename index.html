@@ -24,6 +24,7 @@
                         <i class="fas fa-sign-in-alt"></i>
                         Connexion
                     </button>
+                    <div class="user-info"></div>
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
@@ -234,27 +235,8 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script>
-        // Fonction pour ouvrir la modal de connexion
-        function openLogin() {
-            alert('Fonctionnalité de connexion en cours de développement. API d\'authentification à intégrer.');
-        }
-        
-        // Fonction pour ouvrir l'assistant IA
-        function openAI() {
-            alert('Assistant IA en cours de développement. Intégration OpenAI prévue.');
-        }
-        
-        // Fonction pour ouvrir le panier
-        function openCart() {
-            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-            if (cartItems.length === 0) {
-                alert('Votre panier est vide. Parcourez notre catalogue pour ajouter des pneus !');
-            } else {
-                alert(`Votre panier contient ${cartItems.length} article(s).\n\nFonctionnalité de commande en cours de développement.`);
-            }
-        }
-        
         // Fonction pour ajouter un article au panier
         function addToCart(productId, productName, price) {
             let cart = JSON.parse(localStorage.getItem('cart') || '[]');
