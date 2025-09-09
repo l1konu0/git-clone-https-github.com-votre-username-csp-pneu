@@ -1,25 +1,32 @@
 {
   "name": "csp-pneu",
   "version": "1.0.0",
-  "description": "Site web CSP Pneu - Spécialiste pneus",
+  "description": "Site web CSP Pneu - Spécialiste pneus (TypeScript)",
   "main": "index.html",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Build completed'",
-    "start": "vercel dev"
+    "build": "tsc && echo 'Build completed'",
+    "start": "vercel dev",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist/",
+    "cleanup-php": "chmod +x cleanup-php.sh && ./cleanup-php.sh"
   },
   "keywords": [
     "pneus",
     "automobile",
     "catalogue",
-    "e-commerce"
+    "e-commerce",
+    "typescript",
+    "vercel"
   ],
   "author": "CSP Pneu",
   "license": "MIT",
   "devDependencies": {
-    "@vercel/node": "^3.0.0"
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   },
-  "dependencies": {
-    "mysql2": "^3.6.0"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
