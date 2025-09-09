@@ -1,0 +1,33 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="220" height="60" fill="url(#bgGradient)" rx="8"/>
+  
+  <!-- Red curve -->
+  <path d="M20 25 Q35 15 50 25 L80 25" stroke="#b91c1c" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Black tire shape -->
+  <path d="M80 15 L120 15 L130 25 L125 35 L120 45 L80 45 L75 35 Z" fill="#000000"/>
+  
+  <!-- Tire treads -->
+  <line x1="85" y1="20" x2="115" y2="20" stroke="#b91c1c" stroke-width="2"/>
+  <line x1="85" y1="25" x2="115" y2="25" stroke="#b91c1c" stroke-width="2"/>
+  <line x1="85" y1="30" x2="115" y2="30" stroke="#b91c1c" stroke-width="2"/>
+  <line x1="85" y1="35" x2="115" y2="35" stroke="#b91c1c" stroke-width="2"/>
+  <line x1="85" y1="40" x2="115" y2="40" stroke="#b91c1c" stroke-width="2"/>
+  
+  <!-- CSP text -->
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#b91c1c">CSP</text>
+  
+  <!-- CHAHBANI STAR PNEUS text -->
+  <text x="25" y="58" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#b91c1c">CHAHBANI</text>
+  <text x="85" y="58" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#000000">STAR</text>
+  <text x="120" y="58" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#000000">PNEUS</text>
+</svg>
