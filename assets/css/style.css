@@ -8,8 +8,8 @@
 body {
     font-family: 'Inter', 'Roboto', sans-serif;
     line-height: 1.7;
-    color: #2d3748;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
     min-height: 100vh;
 }
 
@@ -21,13 +21,14 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
     color: white;
-    box-shadow: 0 4px 20px rgba(45, 55, 72, 0.15);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    border-bottom: 3px solid #000000;
 }
 
 .navbar {
@@ -41,6 +42,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-right: 2rem;
 }
 
 .nav-logo a {
@@ -103,7 +110,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #2d3748 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
     color: white;
     padding: 5rem 0;
     display: flex;
@@ -190,16 +197,18 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    color: #1a202c;
-    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     font-weight: 600;
+    border: 2px solid #000000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
@@ -254,7 +263,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     border-radius: 2px;
 }
 
@@ -284,7 +293,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -300,7 +309,7 @@ body {
 
 .feature-icon {
     font-size: 3.5rem;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -363,7 +372,7 @@ body {
 /* CTA Section */
 .cta {
     padding: 5rem 0;
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #2d3748 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
     color: white;
     text-align: center;
     position: relative;
@@ -402,7 +411,7 @@ body {
 
 /* Services */
 .services-header, .catalog-header, .contact-header {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #2d3748 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
     color: white;
     padding: 4rem 0;
     text-align: center;
@@ -728,7 +737,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -804,7 +813,7 @@ body {
 .price {
     font-size: 1.6rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1031,9 +1040,10 @@ body {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     color: white;
     padding: 4rem 0 2rem;
+    border-top: 3px solid #dc2626;
     margin-top: 5rem;
     position: relative;
     overflow: hidden;
@@ -1062,8 +1072,9 @@ body {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: #fbbf24;
+    color: #dc2626;
     font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .footer-section ul {
@@ -1103,7 +1114,7 @@ body {
 }
 
 .social-links a:hover {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     transform: translateY(-2px);
 }
 
@@ -1206,7 +1217,7 @@ body {
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     color: white;
     padding: 1.5rem 2rem;
     border-radius: 20px 20px 0 0;
@@ -1376,4 +1387,78 @@ body {
     .form-actions {
         flex-direction: column;
     }
+}
+
+/* Boutons de navigation */
+.btn-login, .btn-ai {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: #dc2626;
+    border: 2px solid #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transform: perspective(100px) rotateX(2deg);
+    font-size: 0.9rem;
+}
+
+.btn-login:hover, .btn-ai:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: white;
+    transform: perspective(100px) rotateX(0deg) translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ai {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.btn-ai:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    border-color: #ffffff;
+}
+
+/* Effets de perspective et relief pour les titres */
+.hero h1, .features h2, .brands h2, .cta h2 {
+    text-shadow: 
+        3px 3px 0px #000000,
+        6px 6px 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(220, 38, 38, 0.2);
+    transform: perspective(200px) rotateX(5deg);
+    background: linear-gradient(45deg, #ffffff, #f0f0f0, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Relief pour les cartes */
+.feature-card, .service-card, .pricing-card {
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000;
+    transform: perspective(200px) rotateX(2deg);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover, .service-card:hover, .pricing-card:hover {
+    transform: perspective(200px) rotateX(0deg) translateY(-5px);
+    box-shadow: 
+        0 12px 24px rgba(220, 38, 38, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 2px #dc2626;
 }
