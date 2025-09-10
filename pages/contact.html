@@ -89,44 +89,64 @@
     
     <main class="main-content">
         <!-- Hero section contact -->
-        <section class="contact-hero">
+        <section class="contact-hero-pro">
             <div class="container">
                 <div class="hero-content">
                     <h1>Contactez-nous</h1>
                     <p>Notre équipe est à votre écoute pour répondre à toutes vos questions</p>
+                    <div class="contact-badges">
+                        <div class="badge">
+                            <i class="fas fa-clock"></i>
+                            <span>Ouvert 7j/7</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-phone"></i>
+                            <span>Réponse rapide</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Service fiable</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Section contact principale -->
-        <section class="contact-main">
+        <section class="contact-main-pro">
             <div class="container">
-                <div class="contact-grid">
+                <div class="contact-grid-pro">
                     <!-- Formulaire de contact -->
-                    <div class="contact-form-section">
-                        <h2>Envoyez-nous un message</h2>
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
+                    <div class="contact-form-section-pro">
+                        <div class="form-header">
+                            <h2>Envoyez-nous un message</h2>
+                            <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais</p>
+                        </div>
+                        
+                        <form class="contact-form-pro" id="contactForm">
+                            <div class="form-row-pro">
+                                <div class="form-group-pro">
                                     <label for="firstName">Prénom *</label>
                                     <input type="text" id="firstName" name="firstName" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group-pro">
                                     <label for="lastName">Nom *</label>
                                     <input type="text" id="lastName" name="lastName" required>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group">
+                            
+                            <div class="form-row-pro">
+                                <div class="form-group-pro">
                                     <label for="email">Email *</label>
                                     <input type="email" id="email" name="email" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group-pro">
                                     <label for="phone">Téléphone</label>
                                     <input type="tel" id="phone" name="phone">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            
+                            <div class="form-group-pro">
                                 <label for="subject">Sujet *</label>
                                 <select id="subject" name="subject" required>
                                     <option value="">Sélectionnez un sujet</option>
@@ -137,18 +157,21 @@
                                     <option value="autre">Autre</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            
+                            <div class="form-group-pro">
                                 <label for="message">Message *</label>
                                 <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre demande en détail..."></textarea>
                             </div>
-                            <div class="form-group checkbox-group">
-                                <label class="checkbox-label">
+                            
+                            <div class="form-group-pro checkbox-group-pro">
+                                <label class="checkbox-label-pro">
                                     <input type="checkbox" id="newsletter" name="newsletter">
-                                    <span class="checkmark"></span>
+                                    <span class="checkmark-pro"></span>
                                     Je souhaite recevoir les actualités et offres spéciales
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-large">
+                            
+                            <button type="submit" class="btn-submit-pro">
                                 <i class="fas fa-paper-plane"></i>
                                 Envoyer le message
                             </button>
@@ -156,54 +179,65 @@
                     </div>
 
                     <!-- Informations de contact -->
-                    <div class="contact-info-section">
-                        <h2>Nos coordonnées</h2>
+                    <div class="contact-info-section-pro">
+                        <div class="info-header">
+                            <h2>Nos coordonnées</h2>
+                            <p>Plusieurs façons de nous contacter</p>
+                        </div>
                         
-                        <div class="contact-cards">
-                            <div class="contact-card">
-                                <div class="contact-icon">
+                        <div class="contact-cards-pro">
+                            <div class="contact-card-pro">
+                                <div class="card-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <div class="contact-details">
+                                <div class="card-content">
                                     <h4>Adresse</h4>
                                     <p>123 Rue des Pneus<br>75000 Paris, France</p>
+                                    <a href="#" class="card-link">Voir sur la carte</a>
                                 </div>
                             </div>
 
-                            <div class="contact-card">
-                                <div class="contact-icon">
+                            <div class="contact-card-pro">
+                                <div class="card-icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <div class="contact-details">
+                                <div class="card-content">
                                     <h4>Téléphone</h4>
                                     <p>01 23 45 67 89<br>06 12 34 56 78</p>
+                                    <a href="tel:0123456789" class="card-link">Appeler maintenant</a>
                                 </div>
                             </div>
 
-                            <div class="contact-card">
-                                <div class="contact-icon">
+                            <div class="contact-card-pro">
+                                <div class="card-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <div class="contact-details">
+                                <div class="card-content">
                                     <h4>Email</h4>
                                     <p>contact@csppneu.fr<br>service@csppneu.fr</p>
+                                    <a href="mailto:contact@csppneu.fr" class="card-link">Envoyer un email</a>
                                 </div>
                             </div>
 
-                            <div class="contact-card">
-                                <div class="contact-icon">
+                            <div class="contact-card-pro">
+                                <div class="card-icon">
                                     <i class="fas fa-clock"></i>
                                 </div>
-                                <div class="contact-details">
+                                <div class="card-content">
                                     <h4>Horaires</h4>
                                     <p>Lun - Ven : 8h - 18h<br>Samedi : 8h - 17h</p>
+                                    <span class="card-status">Ouvert maintenant</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Carte interactive -->
-                        <div class="map-container">
-                            <div class="map-placeholder">
+                        <div class="map-container-pro">
+                            <div class="map-header">
+                                <h3>Notre localisation</h3>
+                                <p>Facilement accessible en transport en commun</p>
+                            </div>
+                            <div class="map-placeholder-pro">
                                 <i class="fas fa-map"></i>
                                 <p>Carte interactive</p>
                                 <small>Cliquez pour ouvrir dans Google Maps</small>
@@ -214,49 +248,73 @@
             </div>
         </section>
 
-        <!-- Section FAQ -->
-        <section class="faq-section">
+        <!-- Section FAQ simple -->
+        <section class="faq-pro">
             <div class="container">
-                <h2>Questions fréquentes</h2>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <div class="faq-question">
+                <div class="faq-header">
+                    <h2>Questions fréquentes</h2>
+                    <p>Les réponses aux questions les plus courantes</p>
+                </div>
+                
+                <div class="faq-grid-pro">
+                    <div class="faq-item-pro">
+                        <div class="faq-question-pro">
                             <h4>Quels sont vos délais de livraison ?</h4>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer-pro">
                             <p>Nos délais de livraison varient selon la disponibilité des pneus. En général, comptez 2-3 jours ouvrés pour les pneus en stock, et 5-7 jours pour les commandes spéciales.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
+                    <div class="faq-item-pro">
+                        <div class="faq-question-pro">
                             <h4>Proposez-vous un service de montage à domicile ?</h4>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer-pro">
                             <p>Oui, nous proposons un service de montage à domicile dans un rayon de 30km autour de Paris. Le service est disponible du lundi au samedi sur rendez-vous.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
+                    <div class="faq-item-pro">
+                        <div class="faq-question-pro">
                             <h4>Quelle est votre garantie sur les montages ?</h4>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer-pro">
                             <p>Nous garantissons tous nos montages pendant 1 an. En cas de problème lié à notre intervention, nous nous engageons à corriger le défaut sans frais supplémentaires.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
+                    <div class="faq-item-pro">
+                        <div class="faq-question-pro">
                             <h4>Acceptez-vous les paiements en plusieurs fois ?</h4>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer-pro">
                             <p>Oui, nous proposons des solutions de paiement en plusieurs fois sans frais pour les achats supérieurs à 200€. Renseignez-vous auprès de notre équipe pour plus d'informations.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA simple -->
+        <section class="cta-contact-pro">
+            <div class="container">
+                <div class="cta-content-contact">
+                    <h2>Besoin d'aide immédiate ?</h2>
+                    <p>Appelez-nous directement ou prenez rendez-vous en ligne</p>
+                    <div class="cta-actions-contact">
+                        <a href="tel:0123456789" class="btn-cta-phone">
+                            <i class="fas fa-phone"></i>
+                            Appeler maintenant
+                        </a>
+                        <a href="#" class="btn-cta-rdv">
+                            <i class="fas fa-calendar"></i>
+                            Prendre rendez-vous
+                        </a>
                     </div>
                 </div>
             </div>
@@ -457,18 +515,18 @@
         });
         
         // Gestion des FAQ
-        document.querySelectorAll('.faq-question').forEach(question => {
+        document.querySelectorAll('.faq-question-pro').forEach(question => {
             question.addEventListener('click', function() {
                 const faqItem = this.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
+                const answer = faqItem.querySelector('.faq-answer-pro');
                 const icon = this.querySelector('i');
                 
                 // Fermer toutes les autres FAQ
-                document.querySelectorAll('.faq-item').forEach(item => {
+                document.querySelectorAll('.faq-item-pro').forEach(item => {
                     if (item !== faqItem) {
                         item.classList.remove('active');
-                        item.querySelector('.faq-answer').style.maxHeight = '0';
-                        item.querySelector('.faq-question i').style.transform = 'rotate(0deg)';
+                        item.querySelector('.faq-answer-pro').style.maxHeight = '0';
+                        item.querySelector('.faq-question-pro i').style.transform = 'rotate(0deg)';
                     }
                 });
                 
