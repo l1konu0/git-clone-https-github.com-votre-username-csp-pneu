@@ -991,6 +991,32 @@ body {
     background: linear-gradient(135deg, var(--pure-white) 0%, #f8f9fa 100%);
 }
 
+/* FORCE STYLES FOR SERVICE CARDS - TEST */
+.services-premium .service-card {
+    background: linear-gradient(145deg, #1f2937 0%, #374151 100%) !important;
+    color: white !important;
+}
+
+.services-premium .service-card h3 {
+    color: #ffffff !important;
+}
+
+.services-premium .service-card p {
+    color: #d1d5db !important;
+}
+
+.services-premium .service-card .feature-item {
+    color: #d1d5db !important;
+}
+
+.services-premium .service-card .price-main {
+    color: #ffffff !important;
+}
+
+.services-premium .service-card .price-details {
+    color: #d1d5db !important;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -1017,7 +1043,7 @@ body {
 }
 
 .service-card {
-    background: var(--gradient-card);
+    background: linear-gradient(145deg, #1f2937 0%, #374151 100%) !important;
     padding: 3rem 2rem;
     border-radius: 20px;
     text-align: center;
@@ -1073,11 +1099,11 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--pure-white);
+    color: #ffffff !important;
 }
 
 .service-card p {
-    color: #d1d5db;
+    color: #d1d5db !important;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -1438,7 +1464,7 @@ body {
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
-    color: #d1d5db;
+    color: #d1d5db !important;
 }
 
 .feature-item i {
@@ -1955,11 +1981,11 @@ body {
 .price-main {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--pure-white);
+    color: #ffffff !important;
 }
 
 .price-details {
-    color: #d1d5db;
+    color: #d1d5db !important;
     font-size: 0.9rem;
 }
 
