@@ -162,8 +162,9 @@ class CatalogManager {
                         <span class="price">${product.prix.toFixed(2)}€</span>
                         <span class="stock">Stock: ${product.stock}</span>
                     </div>
-                    <button class="btn btn-primary" onclick="contactPneu(${product.id})">
-                        Demander un devis
+                    <button class="btn btn-primary" onclick="addToCart(${product.id}, '${product.marque} ${product.modele}', ${product.prix})">
+                        <i class="fas fa-shopping-cart"></i>
+                        Ajouter au panier
                     </button>
                 </div>
             </div>
@@ -171,12 +172,6 @@ class CatalogManager {
     }
 }
 
-// Fonction pour contacter pour un pneu
-function contactPneu(pneuId) {
-    if (confirm('Voulez-vous demander un devis pour ce pneu ?\n\nVous serez redirigé vers la page de contact.')) {
-        window.location.href = `contact.html?pneu=${pneuId}`;
-    }
-}
 
 // Initialiser le catalogue quand la page est chargée
 document.addEventListener('DOMContentLoaded', function() {

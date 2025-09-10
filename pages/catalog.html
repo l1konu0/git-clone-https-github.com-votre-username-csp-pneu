@@ -158,7 +158,20 @@
             if (cartItems.length === 0) {
                 alert('Votre panier est vide. Parcourez notre catalogue pour ajouter des pneus !');
             } else {
-                alert(`Votre panier contient ${cartItems.length} article(s).\n\nFonctionnalité de commande en cours de développement.`);
+                let cartContent = 'Votre panier :\n\n';
+                let total = 0;
+                
+                cartItems.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    cartContent += `${index + 1}. ${item.name}\n`;
+                    cartContent += `   Prix: ${item.price.toFixed(2)}€ x ${item.quantity} = ${itemTotal.toFixed(2)}€\n\n`;
+                });
+                
+                cartContent += `Total: ${total.toFixed(2)}€\n\n`;
+                cartContent += 'Fonctionnalité de commande en cours de développement.';
+                
+                alert(cartContent);
             }
         }
         
@@ -187,6 +200,67 @@
             setTimeout(() => {
                 cartWheel.style.animation = '';
             }, 500);
+            
+            // Notification de confirmation
+            showNotification(`${productName} ajouté au panier !`, 'success');
+        }
+        
+        // Fonction pour afficher une notification
+        function showNotification(message, type = 'info') {
+            // Supprimer les notifications existantes
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Créer la notification
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Ajouter les styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            // Ajouter l'animation CSS
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
         
         // Fonction pour mettre à jour le compteur du panier
