@@ -149,6 +149,182 @@
         </section>
 
 
+        <!-- Section recherche par véhicule -->
+        <section class="vehicle-search">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2>Trouvez vos pneus par véhicule</h2>
+                    <p>Sélectionnez votre véhicule pour voir les pneus compatibles</p>
+                </div>
+                
+                <div class="vehicle-search-form scroll-reveal">
+                    <div class="search-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Marque</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Modèle</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Année</div>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Résultats</div>
+                        </div>
+                    </div>
+                    
+                    <form class="vehicle-form" id="vehicleSearchForm">
+                        <div class="form-step active" data-step="1">
+                            <div class="form-group">
+                                <label for="vehicleBrand">Marque du véhicule</label>
+                                <select id="vehicleBrand" name="brand" required>
+                                    <option value="">Sélectionnez une marque</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                    <option value="volkswagen">Volkswagen</option>
+                                    <option value="peugeot">Peugeot</option>
+                                    <option value="renault">Renault</option>
+                                    <option value="citroen">Citroën</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="hyundai">Hyundai</option>
+                                    <option value="kia">Kia</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" data-step="2">
+                            <div class="form-group">
+                                <label for="vehicleModel">Modèle du véhicule</label>
+                                <select id="vehicleModel" name="model" disabled>
+                                    <option value="">Sélectionnez d'abord une marque</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" data-step="3">
+                            <div class="form-group">
+                                <label for="vehicleYear">Année du véhicule</label>
+                                <select id="vehicleYear" name="year" disabled>
+                                    <option value="">Sélectionnez d'abord un modèle</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="prevStep" disabled>
+                                <i class="fas fa-arrow-left"></i>
+                                Précédent
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextStep">
+                                Suivant
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="searchTires" style="display: none;">
+                                <i class="fas fa-search"></i>
+                                Rechercher les pneus
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Guide des dimensions -->
+                <div class="tire-guide scroll-reveal">
+                    <h3>Comment lire les dimensions de vos pneus ?</h3>
+                    <div class="guide-content">
+                        <div class="guide-image">
+                            <div class="tire-example">
+                                <div class="tire-dimensions">
+                                    <span class="dimension width">205</span>
+                                    <span class="dimension profile">55</span>
+                                    <span class="dimension rim">R16</span>
+                                    <span class="dimension load">91</span>
+                                    <span class="dimension speed">V</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="guide-text">
+                            <div class="guide-item">
+                                <strong>205</strong> - Largeur du pneu en mm
+                            </div>
+                            <div class="guide-item">
+                                <strong>55</strong> - Hauteur du flanc (% de la largeur)
+                            </div>
+                            <div class="guide-item">
+                                <strong>R16</strong> - Type de structure et diamètre de jante
+                            </div>
+                            <div class="guide-item">
+                                <strong>91</strong> - Indice de charge
+                            </div>
+                            <div class="guide-item">
+                                <strong>V</strong> - Indice de vitesse
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section promotions -->
+        <section class="promotions">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2>Promotions du moment</h2>
+                    <p>Profitez de nos offres spéciales sur les meilleures marques</p>
+                </div>
+                
+                <div class="promotions-grid">
+                    <div class="promo-card scroll-reveal">
+                        <div class="promo-badge">-20%</div>
+                        <div class="promo-content">
+                            <h3>Pneus d'été Michelin</h3>
+                            <p>Jusqu'à 20% de réduction sur toute la gamme</p>
+                            <div class="promo-price">
+                                <span class="old-price">150€</span>
+                                <span class="new-price">120€</span>
+                            </div>
+                            <a href="pages/catalog.html" class="btn btn-primary">Voir l'offre</a>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-card scroll-reveal">
+                        <div class="promo-badge">-15%</div>
+                        <div class="promo-content">
+                            <h3>Montage gratuit</h3>
+                            <p>Montage offert sur tous les pneus Continental</p>
+                            <div class="promo-price">
+                                <span class="old-price">+30€</span>
+                                <span class="new-price">Gratuit</span>
+                            </div>
+                            <a href="pages/catalog.html" class="btn btn-primary">En profiter</a>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-card scroll-reveal">
+                        <div class="promo-badge">-25%</div>
+                        <div class="promo-content">
+                            <h3>Pneus 4 saisons</h3>
+                            <p>Économisez sur les pneus Bridgestone 4 saisons</p>
+                            <div class="promo-price">
+                                <span class="old-price">180€</span>
+                                <span class="new-price">135€</span>
+                            </div>
+                            <a href="pages/catalog.html" class="btn btn-primary">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section marques partenaires premium -->
         <section class="brands-premium">
             <div class="container">
@@ -762,10 +938,170 @@
             }
         });
         
+        // Gestion de la recherche par véhicule
+        let currentStep = 1;
+        const maxSteps = 4;
+        
+        // Données des véhicules (simulation)
+        const vehicleData = {
+            audi: {
+                models: ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            },
+            bmw: {
+                models: ['Série 1', 'Série 2', 'Série 3', 'Série 4', 'Série 5', 'Série 6', 'Série 7', 'Série 8', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'i8'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            },
+            mercedes: {
+                models: ['Classe A', 'Classe B', 'Classe C', 'Classe E', 'Classe S', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G-Class', 'CLA', 'CLS', 'SL', 'AMG GT'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            },
+            volkswagen: {
+                models: ['Polo', 'Golf', 'Passat', 'Arteon', 'Tiguan', 'Touareg', 'T-Cross', 'T-Roc', 'ID.3', 'ID.4', 'ID.Buzz', 'Caddy', 'Transporter', 'Amarok'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            },
+            peugeot: {
+                models: ['108', '208', '308', '408', '508', '2008', '3008', '5008', 'Partner', 'Expert', 'Boxer', 'Rifter', 'Traveller'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            },
+            renault: {
+                models: ['Twingo', 'Clio', 'Megane', 'Talisman', 'Captur', 'Kadjar', 'Koleos', 'Kangoo', 'Trafic', 'Master', 'Zoe', 'Twingo Z.E.'],
+                years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015']
+            }
+        };
+        
+        // Fonction pour mettre à jour les étapes
+        function updateSteps() {
+            document.querySelectorAll('.step').forEach((step, index) => {
+                const stepNumber = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+        
+        // Fonction pour afficher l'étape suivante
+        function showNextStep() {
+            if (currentStep < maxSteps) {
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep++;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateSteps();
+                
+                // Mettre à jour les boutons
+                const prevBtn = document.getElementById('prevStep');
+                const nextBtn = document.getElementById('nextStep');
+                const searchBtn = document.getElementById('searchTires');
+                
+                prevBtn.disabled = false;
+                
+                if (currentStep === maxSteps) {
+                    nextBtn.style.display = 'none';
+                    searchBtn.style.display = 'inline-flex';
+                } else {
+                    nextBtn.style.display = 'inline-flex';
+                    searchBtn.style.display = 'none';
+                }
+            }
+        }
+        
+        // Fonction pour afficher l'étape précédente
+        function showPrevStep() {
+            if (currentStep > 1) {
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep--;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateSteps();
+                
+                // Mettre à jour les boutons
+                const prevBtn = document.getElementById('prevStep');
+                const nextBtn = document.getElementById('nextStep');
+                const searchBtn = document.getElementById('searchTires');
+                
+                if (currentStep === 1) {
+                    prevBtn.disabled = true;
+                }
+                
+                nextBtn.style.display = 'inline-flex';
+                searchBtn.style.display = 'none';
+            }
+        }
+        
+        // Fonction pour remplir les modèles selon la marque
+        function updateModels() {
+            const brand = document.getElementById('vehicleBrand').value;
+            const modelSelect = document.getElementById('vehicleModel');
+            const yearSelect = document.getElementById('vehicleYear');
+            
+            // Vider les options
+            modelSelect.innerHTML = '<option value="">Sélectionnez d\'abord une marque</option>';
+            yearSelect.innerHTML = '<option value="">Sélectionnez d\'abord un modèle</option>';
+            
+            if (brand && vehicleData[brand]) {
+                modelSelect.disabled = false;
+                yearSelect.disabled = true;
+                
+                vehicleData[brand].models.forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model;
+                    option.textContent = model;
+                    modelSelect.appendChild(option);
+                });
+            } else {
+                modelSelect.disabled = true;
+                yearSelect.disabled = true;
+            }
+        }
+        
+        // Fonction pour remplir les années selon le modèle
+        function updateYears() {
+            const brand = document.getElementById('vehicleBrand').value;
+            const yearSelect = document.getElementById('vehicleYear');
+            
+            if (brand && vehicleData[brand]) {
+                yearSelect.disabled = false;
+                yearSelect.innerHTML = '<option value="">Sélectionnez une année</option>';
+                
+                vehicleData[brand].years.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
+                });
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('vehicleBrand').addEventListener('change', updateModels);
+        document.getElementById('vehicleModel').addEventListener('change', updateYears);
+        document.getElementById('nextStep').addEventListener('click', showNextStep);
+        document.getElementById('prevStep').addEventListener('click', showPrevStep);
+        
+        // Soumission du formulaire
+        document.getElementById('vehicleSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const brand = document.getElementById('vehicleBrand').value;
+            const model = document.getElementById('vehicleModel').value;
+            const year = document.getElementById('vehicleYear').value;
+            
+            if (brand && model && year) {
+                showNotification(`Recherche de pneus pour ${brand} ${model} ${year}...`, 'info');
+                setTimeout(() => {
+                    window.location.href = `pages/catalog.html?brand=${brand}&model=${model}&year=${year}`;
+                }, 1500);
+            }
+        });
+        
         // Initialiser au chargement de la page
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
             animateOnScroll();
+            updateSteps();
             
             // Écouter le scroll pour les animations
             window.addEventListener('scroll', animateOnScroll);
