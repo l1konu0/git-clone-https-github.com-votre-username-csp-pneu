@@ -139,6 +139,41 @@ body {
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
+/* Logo texte CSP */
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-red);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.logo-text:hover {
+    color: var(--dark-red);
+    transform: scale(1.1);
+    text-shadow: 3px 3px 6px rgba(220, 38, 38, 0.3);
+}
+
+.logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.logo-text:hover::after {
+    transform: scaleX(1);
+}
+
 .nav-buttons {
     display: flex;
     align-items: center;
@@ -4089,6 +4124,21 @@ body {
     
     .brand-modal-footer {
         flex-direction: column;
+    }
+}
+
+/* Responsive pour le logo texte */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
     }
 }
 
