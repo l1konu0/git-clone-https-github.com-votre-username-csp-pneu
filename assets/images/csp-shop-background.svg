@@ -1,0 +1,137 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Dégradés pour le ciel -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B0E0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Dégradé pour le bâtiment -->
+    <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8F9FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E9ECEF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Dégradé pour l'enseigne -->
+    <linearGradient id="signGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C42;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Dégradé pour la route -->
+    <linearGradient id="roadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B7280;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B5563;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ciel -->
+  <rect width="1920" height="400" fill="url(#skyGradient)"/>
+  
+  <!-- Structure du bâtiment en construction -->
+  <rect x="0" y="200" width="1920" height="200" fill="url(#buildingGradient)"/>
+  <rect x="0" y="200" width="1920" height="15" fill="#C0C0C0"/>
+  
+  <!-- Magasin principal -->
+  <rect x="300" y="400" width="1000" height="400" fill="#F8F9FA"/>
+  
+  <!-- Enseigne principale -->
+  <rect x="300" y="400" width="1000" height="80" fill="white"/>
+  <rect x="300" y="400" width="1000" height="15" fill="url(#signGradient)"/>
+  
+  <!-- Section Hankook -->
+  <rect x="300" y="400" width="333" height="80" fill="white"/>
+  <rect x="300" y="400" width="333" height="15" fill="url(#signGradient)"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">HANKOOK</text>
+  <text x="380" y="450" font-family="Arial, sans-serif" font-size="12" fill="white">driving emotion</text>
+  
+  <!-- Section CSP -->
+  <rect x="633" y="400" width="334" height="80" fill="white"/>
+  <rect x="633" y="400" width="334" height="15" fill="url(#signGradient)"/>
+  <text x="700" y="430" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#DC2626">CSP</text>
+  <text x="750" y="430" font-family="Arial, sans-serif" font-size="16" fill="#1F2937">CHAHBANI STAR PNEUS</text>
+  <text x="700" y="450" font-family="Arial, sans-serif" font-size="14" fill="#6B7280">98 215 559 - 20 215 559</text>
+  
+  <!-- Logo pneu stylisé -->
+  <circle cx="800" cy="430" r="20" fill="none" stroke="#DC2626" stroke-width="3"/>
+  <circle cx="800" cy="430" r="12" fill="none" stroke="#1F2937" stroke-width="2"/>
+  <circle cx="800" cy="430" r="6" fill="#DC2626"/>
+  
+  <!-- Section Bridgestone -->
+  <rect x="967" y="400" width="333" height="80" fill="white"/>
+  <rect x="967" y="400" width="333" height="15" fill="url(#signGradient)"/>
+  <text x="1050" y="430" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">BRIDGESTONE</text>
+  <text x="1040" y="450" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">SERVICE PNEUMATIQUES</text>
+  
+  <!-- Baies du magasin -->
+  <rect x="350" y="480" width="200" height="300" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="2"/>
+  <rect x="600" y="480" width="200" height="300" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="2"/>
+  <rect x="850" y="480" width="200" height="300" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="2"/>
+  
+  <!-- Voiture Volkswagen Polo grise -->
+  <rect x="370" y="600" width="160" height="80" fill="#6B7280" rx="8"/>
+  <rect x="380" y="610" width="140" height="50" fill="#9CA3AF" rx="5"/>
+  <circle cx="390" cy="660" r="12" fill="#1F2937"/>
+  <circle cx="510" cy="660" r="12" fill="#1F2937"/>
+  <text x="450" y="650" font-family="Arial, sans-serif" font-size="10" fill="white">171 و 226</text>
+  
+  <!-- Pneus sur le toit de la Polo -->
+  <circle cx="450" cy="620" r="15" fill="#1F2937"/>
+  <circle cx="450" cy="620" r="10" fill="#374151"/>
+  <circle cx="450" cy="620" r="5" fill="#6B7280"/>
+  
+  <!-- Personne dans le magasin -->
+  <circle cx="700" cy="650" r="6" fill="#FBBF24"/>
+  <rect x="697" y="656" width="6" height="15" fill="#3B82F6"/>
+  <rect x="695" y="671" width="10" height="6" fill="#1F2937"/>
+  
+  <!-- Pneus dans la baie de droite -->
+  <circle cx="900" cy="580" r="20" fill="#1F2937"/>
+  <circle cx="900" cy="580" r="14" fill="#374151"/>
+  <circle cx="900" cy="580" r="8" fill="#6B7280"/>
+  
+  <circle cx="940" cy="580" r="20" fill="#1F2937"/>
+  <circle cx="940" cy="580" r="14" fill="#374151"/>
+  <circle cx="940" cy="580" r="8" fill="#6B7280"/>
+  
+  <circle cx="980" cy="580" r="20" fill="#1F2937"/>
+  <circle cx="980" cy="580" r="14" fill="#374151"/>
+  <circle cx="980" cy="580" r="8" fill="#6B7280"/>
+  
+  <!-- Voiture rouge sur la rue -->
+  <rect x="1100" y="700" width="180" height="100" fill="#DC2626" rx="12"/>
+  <rect x="1110" y="710" width="160" height="60" fill="#FEE2E2" rx="6"/>
+  <circle cx="1130" cy="780" r="15" fill="#1F2937"/>
+  <circle cx="1250" cy="780" r="15" fill="#1F2937"/>
+  <rect x="1100" y="700" width="180" height="15" fill="#1F2937"/>
+  
+  <!-- Poteau électrique -->
+  <rect x="1300" y="500" width="6" height="200" fill="#6B7280"/>
+  <rect x="1295" y="500" width="16" height="6" fill="#6B7280"/>
+  
+  <!-- Poubelle -->
+  <rect x="250" y="750" width="25" height="35" fill="#6B7280" rx="4"/>
+  <rect x="255" y="755" width="15" height="25" fill="#9CA3AF" rx="2"/>
+  
+  <!-- Sol de la rue -->
+  <rect x="0" y="800" width="1920" height="280" fill="url(#roadGradient)"/>
+  <rect x="0" y="800" width="1920" height="15" fill="#9CA3AF"/>
+  
+  <!-- Ombres des bâtiments -->
+  <rect x="300" y="800" width="1000" height="15" fill="rgba(0,0,0,0.1)"/>
+  <rect x="350" y="780" width="200" height="15" fill="rgba(0,0,0,0.1)"/>
+  <rect x="600" y="780" width="200" height="15" fill="rgba(0,0,0,0.1)"/>
+  <rect x="850" y="780" width="200" height="15" fill="rgba(0,0,0,0.1)"/>
+  
+  <!-- Détails supplémentaires -->
+  <rect x="350" y="500" width="200" height="5" fill="#D1D5DB"/>
+  <rect x="600" y="500" width="200" height="5" fill="#D1D5DB"/>
+  <rect x="850" y="500" width="200" height="5" fill="#D1D5DB"/>
+  
+  <!-- Texte "MASTER DEALER" -->
+  <text x="700" y="520" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">MASTER DEALER</text>
+  
+  <!-- Texte "LIQUI MOLY" -->
+  <text x="900" y="520" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">LIQUI MOLY</text>
+</svg>

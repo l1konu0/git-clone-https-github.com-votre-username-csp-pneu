@@ -92,8 +92,12 @@
     </div>
     
     <main class="main-content">
-        <!-- Hero section ultra moderne -->
-        <section class="hero-modern">
+        <!-- Hero section ultra moderne avec fond du magasin -->
+        <section class="hero-modern hero-with-background">
+            <div class="hero-background">
+                <img src="assets/images/csp-shop-background.svg" alt="Magasin CSP Pneu" class="hero-bg-image">
+                <div class="hero-overlay"></div>
+            </div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
@@ -153,39 +157,103 @@
                             <i class="fas fa-tire"></i>
                         </div>
                         <h3>Montage de Pneus</h3>
-                        <p>Montage professionnel avec équilibrage de précision pour une conduite optimale et sécurisée</p>
+                        <p class="service-description">Montage professionnel avec équipement de pointe. Nos techniciens certifiés garantissent une installation parfaite et un équilibrage de précision pour une conduite optimale.</p>
                         <div class="service-features">
-                            <span class="feature">Équilibrage</span>
-                            <span class="feature">Géométrie</span>
-                            <span class="feature">Contrôle qualité</span>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Équilibrage de précision</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Contrôle de géométrie</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Garantie montage 1 an</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Contrôle qualité final</span>
+                            </div>
                         </div>
-                        <div class="service-price">À partir de 25€</div>
+                        <div class="service-pricing">
+                            <div class="price-main">25€</div>
+                            <div class="price-details">par pneu</div>
+                        </div>
+                        <button class="btn-service" onclick="showNotification('Service de montage disponible - Contactez-nous !', 'info')">
+                            <i class="fas fa-calendar"></i>
+                            Prendre rendez-vous
+                        </button>
                     </div>
+                    
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-wrench"></i>
                         </div>
-                        <h3>Réparation</h3>
-                        <p>Réparation de pneus avec garantie et contrôle de sécurité complet par nos techniciens certifiés</p>
+                        <div class="service-badge">Économique</div>
+                        <h3>Réparation de Pneus</h3>
+                        <p class="service-description">Réparation professionnelle avec techniques modernes et matériaux de qualité. Nous restaurons la performance et la sécurité de vos pneus endommagés.</p>
                         <div class="service-features">
-                            <span class="feature">Colmatage</span>
-                            <span class="feature">Réchappage</span>
-                            <span class="feature">Garantie</span>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Colmatage professionnel</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Réchappage sur mesure</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Contrôle de sécurité</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Garantie réparation</span>
+                            </div>
                         </div>
-                        <div class="service-price">À partir de 15€</div>
+                        <div class="service-pricing">
+                            <div class="price-main">15€</div>
+                            <div class="price-details">réparation simple</div>
+                        </div>
+                        <button class="btn-service" onclick="showNotification('Service de réparation disponible - Contactez-nous !', 'info')">
+                            <i class="fas fa-calendar"></i>
+                            Prendre rendez-vous
+                        </button>
                     </div>
+                    
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-truck"></i>
                         </div>
+                        <div class="service-badge">Premium</div>
                         <h3>Livraison & Montage</h3>
-                        <p>Livraison à domicile et montage sur site pour votre confort et votre tranquillité</p>
+                        <p class="service-description">Service complet de livraison à domicile avec montage sur site. Nos équipes mobiles se déplacent chez vous pour un service personnalisé.</p>
                         <div class="service-features">
-                            <span class="feature">Express</span>
-                            <span class="feature">Sur site</span>
-                            <span class="feature">Gratuit</span>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Livraison express</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Montage sur site</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Service gratuit</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Disponible 7j/7</span>
+                            </div>
                         </div>
-                        <div class="service-price">À partir de 35€</div>
+                        <div class="service-pricing">
+                            <div class="price-main">35€</div>
+                            <div class="price-details">service complet</div>
+                        </div>
+                        <button class="btn-service" onclick="showNotification('Service de livraison disponible - Contactez-nous !', 'info')">
+                            <i class="fas fa-calendar"></i>
+                            Prendre rendez-vous
+                        </button>
                     </div>
                 </div>
             </div>
@@ -200,7 +268,6 @@
                 </div>
                 <div class="brands-showcase">
                     <div class="brand-card">
-                        <div class="brand-logo">B</div>
                         <h4>Bridgestone</h4>
                         <p>Innovation japonaise</p>
                         <div class="brand-features">
@@ -209,7 +276,6 @@
                         </div>
                     </div>
                     <div class="brand-card">
-                        <div class="brand-logo">C</div>
                         <h4>Continental</h4>
                         <p>Précision allemande</p>
                         <div class="brand-features">
@@ -218,7 +284,6 @@
                         </div>
                     </div>
                     <div class="brand-card">
-                        <div class="brand-logo">M</div>
                         <h4>Michelin</h4>
                         <p>Excellence française</p>
                         <div class="brand-features">
@@ -227,16 +292,14 @@
                         </div>
                     </div>
                     <div class="brand-card">
-                        <div class="brand-logo">P</div>
                         <h4>Pirelli</h4>
-                        <p>Sport italien</h4>
+                        <p>Sport italien</p>
                         <div class="brand-features">
                             <span>Sport</span>
                             <span>Performance</span>
                         </div>
                     </div>
                     <div class="brand-card">
-                        <div class="brand-logo">G</div>
                         <h4>Goodyear</h4>
                         <p>Tradition américaine</p>
                         <div class="brand-features">
@@ -245,7 +308,6 @@
                         </div>
                     </div>
                     <div class="brand-card">
-                        <div class="brand-logo">H</div>
                         <h4>Hankook</h4>
                         <p>Qualité coréenne</p>
                         <div class="brand-features">
