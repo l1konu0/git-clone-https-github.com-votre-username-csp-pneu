@@ -22,7 +22,7 @@
     --gradient-accent: linear-gradient(135deg, var(--accent-blue) 0%, #3b82f6 100%);
     --gradient-success: linear-gradient(135deg, var(--accent-green) 0%, #10b981 100%);
     --gradient-bg: linear-gradient(135deg, var(--primary-white) 0%, var(--pure-white) 100%);
-    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    --gradient-card: linear-gradient(145deg, #1f2937 0%, #374151 100%);
 }
 
 body {
@@ -1073,11 +1073,11 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--dark-gray);
+    color: var(--pure-white);
 }
 
 .service-card p {
-    color: var(--light-gray);
+    color: #d1d5db;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -1438,7 +1438,7 @@ body {
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
-    color: var(--dark-gray);
+    color: #d1d5db;
 }
 
 .feature-item i {
@@ -1955,11 +1955,11 @@ body {
 .price-main {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--dark-gray);
+    color: var(--pure-white);
 }
 
 .price-details {
-    color: var(--light-gray);
+    color: #d1d5db;
     font-size: 0.9rem;
 }
 
