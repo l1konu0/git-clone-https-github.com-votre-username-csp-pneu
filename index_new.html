@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Pneu - Votre spécialiste pneus</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style_new.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header moderne et interactif -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <a href="index.html">
+                            <img src="assets/csp_logo.svg" alt="CSP - Chahbani Star Pneus" width="220">
+                        </a>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn-login" onclick="openLogin()">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Connexion
+                        </button>
+                        <div class="user-info"></div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/catalog.html" class="nav-link">Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/services.html" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/contact.html" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/" class="nav-link admin-link">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Icônes flottantes interactives -->
+    <div class="ai-wheel" onclick="openAI()" title="Assistant IA">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <div class="cart-wheel" onclick="openCart()" title="Mon panier">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+    <!-- Modal du panier -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Mon panier</h3>
+                <button class="cart-close-btn" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-modal-body" id="cartModalBody">
+                <!-- Le contenu du panier sera généré dynamiquement -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span class="total-label">Total :</span>
+                    <span class="total-amount" id="cartTotal">0.00€</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" onclick="clearCart()">
+                        <i class="fas fa-trash"></i>
+                        Vider le panier
+                    </button>
+                    <button class="btn btn-primary" onclick="proceedToCheckout()">
+                        <i class="fas fa-credit-card"></i>
+                        Commander
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main class="main-content">
+        <!-- Hero section redessinée -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Bienvenue chez CSP Pneu</h1>
+                    <p>Votre spécialiste pneus depuis 25 ans. Qualité, service et expertise au rendez-vous.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/catalog.html" class="btn btn-primary">
+                            <i class="fas fa-tire"></i>
+                            Voir notre catalogue
+                        </a>
+                        <a href="pages/contact.html" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-car"></i>
+            </div>
+        </section>
+
+        <!-- Section à propos redessinée -->
+        <section class="about-us">
+            <div class="container">
+                <h2 class="animate-on-scroll">Qui sommes-nous ?</h2>
+                <div class="about-content animate-on-scroll">
+                    <div class="about-text">
+                        <p>CSP Pneu est votre partenaire de confiance depuis plus de 25 ans dans le domaine des pneus et de la mécanique automobile. Notre expertise et notre passion nous permettent de vous offrir des services de qualité exceptionnelle.</p>
+                        <p>Nous nous engageons à vous fournir les meilleurs pneus des plus grandes marques mondiales, avec un service personnalisé et des conseils d'experts pour répondre à tous vos besoins.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">Années d'expérience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Clients satisfaits</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Service d'urgence</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section fonctionnalités redessinée -->
+        <section class="features">
+            <div class="container">
+                <h2 class="animate-on-scroll">Pourquoi choisir CSP Pneu ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Expertise technique</h3>
+                        <p>Plus de 25 ans d'expérience dans le domaine des pneus et de la mécanique automobile.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Garantie qualité</h3>
+                        <p>Tous nos pneus sont garantis et montés par des professionnels qualifiés.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Service rapide</h3>
+                        <p>Montage et équilibrage en moins de 30 minutes pour la plupart des véhicules.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <h3>Prix compétitifs</h3>
+                        <p>Les meilleurs prix du marché avec des promotions régulières.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section marques partenaires -->
+        <section class="brands">
+            <div class="container">
+                <h2 class="animate-on-scroll">Nos marques partenaires</h2>
+                <div class="brands-grid">
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">B</div>
+                        <span>Bridgestone</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">C</div>
+                        <span>Continental</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">H</div>
+                        <span>Hankook</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">G</div>
+                        <span>Goodyear</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">A</div>
+                        <span>Amine</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">L</div>
+                        <span>Laufenn</span>
+                    </div>
+                    <div class="brand-item animate-on-scroll">
+                        <div class="brand-logo">N</div>
+                        <span>Nexen</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content animate-on-scroll">
+                    <h2>Besoin de nouveaux pneus ?</h2>
+                    <p>Consultez notre catalogue en ligne ou venez nous rendre visite en magasin.</p>
+                    <a href="pages/catalog.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-tire"></i>
+                        Découvrir nos pneus
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>CSP Pneu</h3>
+                    <p>Votre spécialiste pneus depuis 1995. Qualité, service et expertise au rendez-vous.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="pages/services.html">Montage de pneus</a></li>
+                        <li><a href="pages/services.html">Équilibrage</a></li>
+                        <li><a href="pages/services.html">Géométrie</a></li>
+                        <li><a href="pages/services.html">Réparation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Rue des Pneus, 75000 Paris</li>
+                        <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                        <li><i class="fas fa-envelope"></i> contact@csppneu.fr</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <ul>
+                        <li>Lun - Ven : 8h - 18h</li>
+                        <li>Samedi : 8h - 17h</li>
+                        <li>Dimanche : Fermé</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CSP Pneu. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Fonction pour ouvrir l'IA
+        function openAI() {
+            showNotification('Assistant IA en cours de développement', 'info');
+        }
+        
+        // Fonction pour ouvrir le panier
+        function openCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.add('show');
+            renderCartModal();
+        }
+        
+        // Fonction pour fermer le panier
+        function closeCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.remove('show');
+        }
+        
+        // Fonction pour rendre le contenu du modal de panier
+        function renderCartModal() {
+            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartModalBody = document.getElementById('cartModalBody');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cartItems.length === 0) {
+                cartModalBody.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Votre panier est vide</h4>
+                        <p>Parcourez notre catalogue pour ajouter des pneus !</p>
+                    </div>
+                `;
+                cartTotal.textContent = '0.00€';
+                return;
+            }
+            
+            let total = 0;
+            cartModalBody.innerHTML = cartItems.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price.toFixed(2)}€ par unité</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cart-item-total">${itemTotal.toFixed(2)}€</div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotal.textContent = total.toFixed(2) + '€';
+        }
+        
+        // Fonction pour mettre à jour la quantité d'un article
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartModal();
+            }
+        }
+        
+        // Fonction pour vider le panier
+        function clearCart() {
+            if (confirm('Êtes-vous sûr de vouloir vider votre panier ?')) {
+                localStorage.removeItem('cart');
+                updateCartCount();
+                renderCartModal();
+                showNotification('Panier vidé', 'info');
+            }
+        }
+        
+        // Fonction pour procéder à la commande
+        function proceedToCheckout() {
+            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cartItems.length === 0) {
+                showNotification('Votre panier est vide', 'info');
+                return;
+            }
+            
+            showNotification('Fonctionnalité de commande en cours de développement', 'info');
+        }
+        
+        // Fonction pour ajouter un article au panier
+        function addToCart(productId, productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Animation de confirmation
+            const cartWheel = document.querySelector('.cart-wheel');
+            cartWheel.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                cartWheel.style.animation = '';
+            }, 500);
+            
+            // Notification de confirmation
+            showNotification(`${productName} ajouté au panier !`, 'success');
+        }
+        
+        // Fonction pour afficher une notification
+        function showNotification(message, type = 'info') {
+            // Supprimer les notifications existantes
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Créer la notification
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Fonction pour mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+        
+        // Animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initialiser au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            animateOnScroll();
+            
+            // Écouter le scroll pour les animations
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>

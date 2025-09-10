@@ -13,6 +13,12 @@ class CatalogManager {
     }
 
     async loadProducts() {
+        // Toujours utiliser les données de démonstration pour le moment
+        this.products = this.getDemoProducts();
+        this.filteredProducts = [...this.products];
+        
+        // Code pour l'API (désactivé temporairement)
+        /*
         try {
             const response = await fetch('/api/pneus');
             if (!response.ok) {
@@ -26,6 +32,7 @@ class CatalogManager {
             this.products = this.getDemoProducts();
             this.filteredProducts = [...this.products];
         }
+        */
     }
 
     getDemoProducts() {
