@@ -33,7 +33,7 @@ class InventoryManager {
                 stock: 12,
                 category: 'Sport',
                 description: 'Pneu haute performance pour voitures sportives',
-                image: 'assets/images/pneus/michelin-pilot-sport-4.jpg',
+                image: 'assets/images/pneus/michelin-pilot-sport-4.svg',
                 specifications: {
                     width: '205',
                     profile: '55',
@@ -54,7 +54,7 @@ class InventoryManager {
                 stock: 8,
                 category: 'Confort',
                 description: 'Pneu confort et silence pour usage quotidien',
-                image: 'assets/images/pneus/continental-premium-contact-6.jpg',
+                image: 'assets/images/pneus/continental-premium-contact-6.svg',
                 specifications: {
                     width: '215',
                     profile: '60',
@@ -75,7 +75,7 @@ class InventoryManager {
                 stock: 15,
                 category: 'Premium',
                 description: 'Pneu premium pour berlines et coupés',
-                image: 'assets/images/pneus/bridgestone-turanza-t005.jpg',
+                image: 'assets/images/pneus/bridgestone-turanza-t005.svg',
                 specifications: {
                     width: '225',
                     profile: '45',
@@ -97,7 +97,7 @@ class InventoryManager {
                 stock: 6,
                 category: '4 Saisons',
                 description: 'Pneu 4 saisons haute performance',
-                image: 'assets/images/pneus/michelin-crossclimate-plus.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '205',
                     profile: '55',
@@ -118,7 +118,7 @@ class InventoryManager {
                 stock: 10,
                 category: '4 Saisons',
                 description: 'Pneu 4 saisons nouvelle génération',
-                image: 'assets/images/pneus/goodyear-vector-4seasons.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '215',
                     profile: '60',
@@ -140,7 +140,7 @@ class InventoryManager {
                 stock: 4,
                 category: 'Hiver',
                 description: 'Pneu hiver premium pour conditions extrêmes',
-                image: 'assets/images/pneus/nokian-hakkapeliitta-r5.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '205',
                     profile: '55',
@@ -161,7 +161,7 @@ class InventoryManager {
                 stock: 7,
                 category: 'Hiver',
                 description: 'Pneu hiver pour usage urbain et autoroute',
-                image: 'assets/images/pneus/continental-wintercontact-ts860.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '215',
                     profile: '60',
@@ -183,7 +183,7 @@ class InventoryManager {
                 stock: 3,
                 category: 'Utilitaire',
                 description: 'Pneu utilitaire renforcé pour véhicules commerciaux',
-                image: 'assets/images/pneus/michelin-agilis-3.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '195',
                     profile: '70',
@@ -204,7 +204,7 @@ class InventoryManager {
                 stock: 5,
                 category: 'Utilitaire',
                 description: 'Pneu utilitaire 4 saisons pour fourgons',
-                image: 'assets/images/pneus/continental-vancontact-4season.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '205',
                     profile: '65',
@@ -226,7 +226,7 @@ class InventoryManager {
                 stock: 2,
                 category: '4x4',
                 description: 'Pneu tout-terrain pour 4x4 et pick-ups',
-                image: 'assets/images/pneus/bf-goodrich-all-terrain-ko2.jpg',
+                image: 'assets/images/pneus/default.svg',
                 specifications: {
                     width: '265',
                     profile: '70',

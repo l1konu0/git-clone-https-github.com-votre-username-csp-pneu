@@ -1,0 +1,50 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tireGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="treadGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6b7280;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9ca3af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b7280;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fond du pneu -->
+  <ellipse cx="150" cy="100" rx="140" ry="60" fill="url(#tireGradient2)" stroke="#1f2937" stroke-width="2"/>
+  
+  <!-- Profil du pneu -->
+  <ellipse cx="150" cy="100" rx="135" ry="55" fill="none" stroke="#6b7280" stroke-width="1"/>
+  
+  <!-- Sculpture de la bande de roulement -->
+  <g fill="url(#treadGradient2)">
+    <!-- Lignes horizontales -->
+    <rect x="25" y="85" width="250" height="2" rx="1"/>
+    <rect x="25" y="90" width="250" height="2" rx="1"/>
+    <rect x="25" y="100" width="250" height="2" rx="1"/>
+    <rect x="25" y="105" width="250" height="2" rx="1"/>
+    <rect x="25" y="110" width="250" height="2" rx="1"/>
+    
+    <!-- Motifs en losange -->
+    <path d="M 60 85 L 80 100 L 60 115 L 40 100 Z" opacity="0.6"/>
+    <path d="M 100 85 L 120 100 L 100 115 L 80 100 Z" opacity="0.6"/>
+    <path d="M 140 85 L 160 100 L 140 115 L 120 100 Z" opacity="0.6"/>
+    <path d="M 180 85 L 200 100 L 180 115 L 160 100 Z" opacity="0.6"/>
+    <path d="M 220 85 L 240 100 L 220 115 L 200 100 Z" opacity="0.6"/>
+  </g>
+  
+  <!-- Logo Continental -->
+  <g transform="translate(120, 70)">
+    <rect x="5" y="5" width="20" height="20" rx="3" fill="#dc2626" stroke="white" stroke-width="1"/>
+    <text x="15" y="18" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">C</text>
+  </g>
+  
+  <!-- Texte du modèle -->
+  <text x="150" y="140" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PREMIUM CONTACT 6</text>
+  <text x="150" y="155" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="8">215/60R16 95H</text>
+  
+  <!-- Effet de brillance -->
+  <ellipse cx="120" cy="80" rx="25" ry="12" fill="white" opacity="0.1"/>
+</svg>

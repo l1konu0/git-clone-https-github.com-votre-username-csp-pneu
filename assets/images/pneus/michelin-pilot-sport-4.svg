@@ -1,0 +1,49 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a202c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="treadGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a5568;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#718096;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a5568;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fond du pneu -->
+  <ellipse cx="150" cy="100" rx="140" ry="60" fill="url(#tireGradient)" stroke="#1a202c" stroke-width="2"/>
+  
+  <!-- Profil du pneu -->
+  <ellipse cx="150" cy="100" rx="135" ry="55" fill="none" stroke="#4a5568" stroke-width="1"/>
+  
+  <!-- Sculpture de la bande de roulement -->
+  <g fill="url(#treadGradient)">
+    <!-- Lignes principales -->
+    <rect x="20" y="85" width="260" height="3" rx="1.5"/>
+    <rect x="20" y="95" width="260" height="3" rx="1.5"/>
+    <rect x="20" y="105" width="260" height="3" rx="1.5"/>
+    
+    <!-- Motifs en V -->
+    <path d="M 50 80 L 70 100 L 50 120 L 30 100 Z" opacity="0.7"/>
+    <path d="M 90 80 L 110 100 L 90 120 L 70 100 Z" opacity="0.7"/>
+    <path d="M 130 80 L 150 100 L 130 120 L 110 100 Z" opacity="0.7"/>
+    <path d="M 170 80 L 190 100 L 170 120 L 150 100 Z" opacity="0.7"/>
+    <path d="M 210 80 L 230 100 L 210 120 L 190 100 Z" opacity="0.7"/>
+    <path d="M 250 80 L 270 100 L 250 120 L 230 100 Z" opacity="0.7"/>
+  </g>
+  
+  <!-- Logo Michelin -->
+  <g transform="translate(120, 70)">
+    <circle cx="15" cy="15" r="12" fill="#dc2626" stroke="white" stroke-width="2"/>
+    <text x="15" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">M</text>
+  </g>
+  
+  <!-- Texte du modèle -->
+  <text x="150" y="140" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PILOT SPORT 4</text>
+  <text x="150" y="155" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="8">205/55R16 91V</text>
+  
+  <!-- Effet de brillance -->
+  <ellipse cx="120" cy="80" rx="30" ry="15" fill="white" opacity="0.1"/>
+</svg>
