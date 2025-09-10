@@ -1307,5 +1307,19 @@
         });
     </script>
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/inventory.js"></script>
+    <script src="assets/js/order-system.js"></script>
+    <script>
+        // Intégration du système de gestion des stocks
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mettre à jour l'affichage du panier
+            window.orderSystem.updateCartDisplay();
+            
+            // Écouter les mises à jour de l'inventaire
+            window.addEventListener('inventoryUpdated', () => {
+                window.orderSystem.updateCartDisplay();
+            });
+        });
+    </script>
 </body>
 </html>

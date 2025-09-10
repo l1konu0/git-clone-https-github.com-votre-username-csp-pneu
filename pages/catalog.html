@@ -381,5 +381,169 @@
             window.addEventListener('scroll', animateOnScroll);
         });
     </script>
+    
+    <!-- Scripts de gestion des stocks et commandes -->
+    <script src="../assets/js/inventory.js"></script>
+    <script src="../assets/js/order-system.js"></script>
+    <script>
+        // Intégration du système de gestion des stocks
+        document.addEventListener('DOMContentLoaded', function() {
+            // Charger les pneus depuis l'inventaire
+            loadTiresFromInventory();
+            
+            // Écouter les mises à jour de l'inventaire
+            window.addEventListener('inventoryUpdated', loadTiresFromInventory);
+        });
+
+        function loadTiresFromInventory() {
+            const tires = window.inventoryManager.getAllTires();
+            const catalogContainer = document.getElementById('catalog-container');
+            
+            if (!catalogContainer) return;
+
+            catalogContainer.innerHTML = `
+                <div class="catalog-grid">
+                    ${tires.map(tire => `
+                        <div class="product-card" data-tire-id="${tire.id}">
+                            <div class="product-image">
+                                <img src="${tire.image || 'assets/images/pneus/default.jpg'}" alt="${tire.brand} ${tire.model}">
+                                <div class="product-badge ${tire.stock <= 3 ? 'low-stock' : ''}">
+                                    ${tire.stock <= 3 ? 'Stock faible' : tire.stock > 10 ? 'En stock' : 'Disponible'}
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-brand">${tire.brand}</h3>
+                                <h4 class="product-model">${tire.model}</h4>
+                                <div class="product-specs">
+                                    <span class="spec-size">${tire.size}</span>
+                                    <span class="spec-load">${tire.loadIndex}${tire.speedRating}</span>
+                                </div>
+                                <div class="product-season">${tire.season}</div>
+                                <div class="product-description">${tire.description}</div>
+                                <div class="product-stock">
+                                    <i class="fas fa-box"></i>
+                                    <span>${tire.stock} en stock</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price">${tire.price.toFixed(2)}€</span>
+                                    <span class="unit">/pneu</span>
+                                </div>
+                                <div class="product-actions">
+                                    <div class="quantity-selector">
+                                        <button class="btn-quantity" onclick="updateQuantity('${tire.id}', -1)">-</button>
+                                        <input type="number" id="qty-${tire.id}" value="1" min="1" max="${tire.stock}">
+                                        <button class="btn-quantity" onclick="updateQuantity('${tire.id}', 1)">+</button>
+                                    </div>
+                                    <button class="btn btn-primary add-to-cart-btn" 
+                                            data-tire-id="${tire.id}" 
+                                            onclick="addToCart('${tire.id}')"
+                                            ${tire.stock === 0 ? 'disabled' : ''}>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        ${tire.stock === 0 ? 'Rupture de stock' : 'Ajouter au panier'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function updateQuantity(tireId, change) {
+            const input = document.getElementById(`qty-${tireId}`);
+            const tire = window.inventoryManager.getTireById(tireId);
+            const newValue = parseInt(input.value) + change;
+            
+            if (newValue >= 1 && newValue <= tire.stock) {
+                input.value = newValue;
+            }
+        }
+
+        function addToCart(tireId) {
+            const quantity = parseInt(document.getElementById(`qty-${tireId}`).value);
+            window.orderSystem.addToCart(tireId, quantity);
+        }
+
+        // Fonction de recherche
+        function searchTires() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const seasonFilter = document.getElementById('seasonFilter').value;
+            const brandFilter = document.getElementById('brandFilter').value;
+            
+            const criteria = {
+                brand: brandFilter,
+                season: seasonFilter
+            };
+            
+            if (searchTerm) {
+                criteria.search = searchTerm;
+            }
+            
+            const results = window.inventoryManager.searchTires(criteria);
+            displaySearchResults(results);
+        }
+
+        function displaySearchResults(tires) {
+            const catalogContainer = document.getElementById('catalog-container');
+            
+            if (tires.length === 0) {
+                catalogContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>Aucun pneu trouvé</h3>
+                        <p>Essayez de modifier vos critères de recherche</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            catalogContainer.innerHTML = `
+                <div class="catalog-grid">
+                    ${tires.map(tire => `
+                        <div class="product-card" data-tire-id="${tire.id}">
+                            <div class="product-image">
+                                <img src="${tire.image || 'assets/images/pneus/default.jpg'}" alt="${tire.brand} ${tire.model}">
+                                <div class="product-badge ${tire.stock <= 3 ? 'low-stock' : ''}">
+                                    ${tire.stock <= 3 ? 'Stock faible' : tire.stock > 10 ? 'En stock' : 'Disponible'}
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-brand">${tire.brand}</h3>
+                                <h4 class="product-model">${tire.model}</h4>
+                                <div class="product-specs">
+                                    <span class="spec-size">${tire.size}</span>
+                                    <span class="spec-load">${tire.loadIndex}${tire.speedRating}</span>
+                                </div>
+                                <div class="product-season">${tire.season}</div>
+                                <div class="product-description">${tire.description}</div>
+                                <div class="product-stock">
+                                    <i class="fas fa-box"></i>
+                                    <span>${tire.stock} en stock</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price">${tire.price.toFixed(2)}€</span>
+                                    <span class="unit">/pneu</span>
+                                </div>
+                                <div class="product-actions">
+                                    <div class="quantity-selector">
+                                        <button class="btn-quantity" onclick="updateQuantity('${tire.id}', -1)">-</button>
+                                        <input type="number" id="qty-${tire.id}" value="1" min="1" max="${tire.stock}">
+                                        <button class="btn-quantity" onclick="updateQuantity('${tire.id}', 1)">+</button>
+                                    </div>
+                                    <button class="btn btn-primary add-to-cart-btn" 
+                                            data-tire-id="${tire.id}" 
+                                            onclick="addToCart('${tire.id}')"
+                                            ${tire.stock === 0 ? 'disabled' : ''}>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        ${tire.stock === 0 ? 'Rupture de stock' : 'Ajouter au panier'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html>
