@@ -41,11 +41,22 @@ class CatalogManager {
                 id: 1,
                 marque: 'Michelin',
                 modele: 'Pilot Sport 4',
-                dimensions: '225/45 R17',
+                dimensions: '245/40 ZR18',
                 type: 'été',
-                prix: 89.99,
-                stock: 15,
-                description: 'Pneu haute performance pour voitures sportives'
+                prix: 145.00,
+                stock: 10,
+                description: 'Pneu sport ultra haute performance pour véhicules sportifs',
+                image: 'https://dxm.contentcenter.michelin.com/api/wedia/dam/transform/b98rpyxf61b4xe194hr9qcgqyy/4w-238_3528700093414_tire_michelin_pilot-sport-4_245-slash-40-zr18-97y-xl_a_main_1-30_nopad.webp?t=resize&height=500',
+                specifications: {
+                    loadIndex: '97',
+                    speedRating: 'Y',
+                    extraLoad: true,
+                    utqg: {
+                        traction: 'A',
+                        temperature: 'A',
+                        treadwear: 300
+                    }
+                }
             },
             {
                 id: 2,
@@ -155,16 +166,32 @@ class CatalogManager {
         productsGrid.innerHTML = this.filteredProducts.map(product => `
             <div class="product-card" data-marque="${product.marque}" data-type="${product.type}" data-prix="${product.prix}">
                 <div class="product-image">
-                    <i class="fas fa-tire"></i>
+                    ${product.image ? 
+                        `<img src="${product.image}" alt="${product.marque} ${product.modele}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">` : 
+                        `<i class="fas fa-tire"></i>`
+                    }
+                    ${product.specifications && product.specifications.extraLoad ? 
+                        `<div class="product-badge xl-badge">XL</div>` : ''
+                    }
                 </div>
                 <div class="product-info">
                     <h3>${product.marque} ${product.modele}</h3>
                     <p class="product-specs">
                         ${product.dimensions} - ${product.type}
+                        ${product.specifications ? 
+                            ` (${product.specifications.loadIndex}${product.specifications.speedRating})` : ''
+                        }
                     </p>
                     <p class="product-description">
                         ${product.description}
                     </p>
+                    ${product.specifications && product.specifications.utqg ? 
+                        `<div class="product-ratings">
+                            <span class="rating">Traction: ${product.specifications.utqg.traction}</span>
+                            <span class="rating">Température: ${product.specifications.utqg.temperature}</span>
+                            <span class="rating">Usure: ${product.specifications.utqg.treadwear}</span>
+                        </div>` : ''
+                    }
                     <div class="product-price">
                         <span class="price">${product.prix.toFixed(2)}€</span>
                         <span class="stock">Stock: ${product.stock}</span>

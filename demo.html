@@ -152,7 +152,7 @@
                                 <span class="price">89,90€</span>
                                 <span class="stock">Stock: 15</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(1)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(1, 'Michelin Energy Saver+', 89.90)">Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -168,7 +168,7 @@
                                 <span class="price">95,50€</span>
                                 <span class="stock">Stock: 12</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(2)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(2, 'Bridgestone Turanza T005', 95.50)">Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -184,7 +184,7 @@
                                 <span class="price">78,90€</span>
                                 <span class="stock">Stock: 8</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(3)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(3, 'Continental WinterContact TS 860', 78.90)">Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -200,7 +200,7 @@
                                 <span class="price">125,00€</span>
                                 <span class="stock">Stock: 6</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(4)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(4, 'Pirelli P Zero', 125.00)">Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -216,7 +216,7 @@
                                 <span class="price">92,00€</span>
                                 <span class="stock">Stock: 20</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(5)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(5, 'Goodyear EfficientGrip Performance', 92.00)">Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -232,7 +232,23 @@
                                 <span class="price">135,50€</span>
                                 <span class="stock">Stock: 4</span>
                             </div>
-                            <button class="btn btn-primary" onclick="contactPneu(6)">Demander un devis</button>
+                            <button class="btn btn-primary" onclick="addToCart(6, 'Dunlop Sport Maxx RT2', 135.50)">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-marque="michelin" data-type="été" data-prix="145.00">
+                        <div class="product-image">
+                            <img src="https://dxm.contentcenter.michelin.com/api/wedia/dam/transform/b98rpyxf61b4xe194hr9qcgqyy/4w-238_3528700093414_tire_michelin_pilot-sport-4_245-slash-40-zr18-97y-xl_a_main_1-30_nopad.webp?t=resize&height=500" alt="Michelin Pilot Sport 4" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Michelin Pilot Sport 4</h3>
+                            <p class="product-specs">245/40 ZR18 - Été</p>
+                            <p class="product-description">Pneu sport ultra haute performance pour véhicules sportifs</p>
+                            <div class="product-price">
+                                <span class="price">145,00€</span>
+                                <span class="stock">Stock: 10</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="addToCart(7, 'Michelin Pilot Sport 4', 145.00)">Ajouter au panier</button>
                         </div>
                     </div>
                 </div>
@@ -522,8 +538,158 @@
             }
         });
 
-        function contactPneu(pneuId) {
-            alert('Fonctionnalité de contact pour le pneu ID: ' + pneuId + '\n\nDans la version complète, vous serez redirigé vers la page de contact.');
+        // Fonction pour ajouter un article au panier
+        function addToCart(productId, productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Animation de confirmation
+            showNotification(`${productName} ajouté au panier !`, 'success');
+        }
+        
+        // Fonction pour afficher une notification
+        function showNotification(message, type = 'info') {
+            // Supprimer les notifications existantes
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Créer la notification
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Styles pour la notification
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Fonction pour mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Créer ou mettre à jour l'icône du panier
+            let cartIcon = document.querySelector('.cart-icon');
+            if (!cartIcon) {
+                cartIcon = document.createElement('div');
+                cartIcon.className = 'cart-icon';
+                cartIcon.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #b91c1c;
+                    color: white;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                `;
+                cartIcon.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+                document.body.appendChild(cartIcon);
+            }
+            
+            // Ajouter le compteur
+            let cartCount = cartIcon.querySelector('.cart-count');
+            if (!cartCount) {
+                cartCount = document.createElement('span');
+                cartCount.className = 'cart-count';
+                cartCount.style.cssText = `
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background: #f8f9fa;
+                    color: #b91c1c;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                `;
+                cartIcon.appendChild(cartCount);
+            }
+            
+            cartCount.textContent = totalItems;
+            
+            // Animation au clic
+            cartIcon.addEventListener('click', function() {
+                this.style.animation = 'pulse 0.5s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+                
+                // Afficher le contenu du panier
+                showCart();
+            });
+        }
+        
+        // Fonction pour afficher le contenu du panier
+        function showCart() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            if (cart.length === 0) {
+                showNotification('Votre panier est vide', 'info');
+                return;
+            }
+            
+            let total = 0;
+            let cartContent = 'Votre panier :\n\n';
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartContent += `${item.name} x${item.quantity} = ${itemTotal.toFixed(2)}€\n`;
+            });
+            
+            cartContent += `\nTotal : ${total.toFixed(2)}€`;
+            
+            alert(cartContent);
         }
 
         // Smooth scroll
@@ -568,9 +734,12 @@
             // Animer au scroll
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Animer les cartes visibles au chargement
+            
+            // Initialiser le panier
+            updateCartCount();
         });
 
-        // Animation CSS pour les cartes
+        // Animation CSS pour les cartes et notifications
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeIn {
@@ -582,6 +751,34 @@
                     opacity: 1;
                     transform: translateY(0);
                 }
+            }
+            
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
             }
         `;
         document.head.appendChild(style);
