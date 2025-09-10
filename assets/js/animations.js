@@ -199,6 +199,154 @@ function initAllAnimations() {
 // Démarrer les animations
 initAllAnimations();
 
+// Gestion du modal des marques
+function openBrandModal(brandName) {
+    const modal = document.getElementById('brandModal');
+    const title = document.getElementById('brandModalTitle');
+    const body = document.getElementById('brandModalBody');
+    
+    if (!modal) return;
+    
+    // Données des marques
+    const brandData = {
+        'Bridgestone': {
+            description: 'Leader mondial des pneus avec une innovation constante et un engagement environnemental fort.',
+            highlights: [
+                { number: '90+', label: 'Pays' },
+                { number: '140K+', label: 'Employés' },
+                { number: '1931', label: 'Fondation' },
+                { number: '100%', label: 'Qualité' }
+            ],
+            features: ['Performance', 'Durabilité', 'Écologie', 'Innovation'],
+            icon: 'fas fa-circle'
+        },
+        'Continental': {
+            description: 'Précision allemande et technologie de pointe pour des pneus de haute performance.',
+            highlights: [
+                { number: '150+', label: 'Années' },
+                { number: '240K+', label: 'Employés' },
+                { number: '1871', label: 'Fondation' },
+                { number: '100%', label: 'Précision' }
+            ],
+            features: ['Précision', 'Technologie', 'Innovation', 'Performance'],
+            icon: 'fas fa-cog'
+        },
+        'Michelin': {
+            description: 'Excellence française reconnue mondialement pour la qualité et l\'innovation.',
+            highlights: [
+                { number: '130+', label: 'Années' },
+                { number: '180K+', label: 'Employés' },
+                { number: '1889', label: 'Fondation' },
+                { number: '100%', label: 'Excellence' }
+            ],
+            features: ['Qualité', 'Innovation', 'Durabilité', 'Confort'],
+            icon: 'fas fa-star'
+        },
+        'Pirelli': {
+            description: 'Sport italien et luxe pour des pneus haute performance et esthétique.',
+            highlights: [
+                { number: '150+', label: 'Années' },
+                { number: '30K+', label: 'Employés' },
+                { number: '1872', label: 'Fondation' },
+                { number: '100%', label: 'Sport' }
+            ],
+            features: ['Sport', 'Performance', 'Luxe', 'Esthétique'],
+            icon: 'fas fa-bolt'
+        },
+        'Goodyear': {
+            description: 'Tradition américaine et fiabilité pour tous types de véhicules.',
+            highlights: [
+                { number: '120+', label: 'Années' },
+                { number: '64K+', label: 'Employés' },
+                { number: '1898', label: 'Fondation' },
+                { number: '100%', label: 'Fiabilité' }
+            ],
+            features: ['Fiabilité', 'Confort', 'Innovation', 'Durabilité'],
+            icon: 'fas fa-shield-alt'
+        },
+        'Hankook': {
+            description: 'Qualité coréenne avec un excellent rapport qualité-prix et innovation.',
+            highlights: [
+                { number: '80+', label: 'Années' },
+                { number: '22K+', label: 'Employés' },
+                { number: '1941', label: 'Fondation' },
+                { number: '100%', label: 'Valeur' }
+            ],
+            features: ['Rapport qualité/prix', 'Innovation', 'Performance', 'Fiabilité'],
+            icon: 'fas fa-gem'
+        }
+    };
+    
+    const brand = brandData[brandName];
+    if (!brand) return;
+    
+    // Mettre à jour le titre
+    title.textContent = brandName;
+    
+    // Générer le contenu du modal
+    body.innerHTML = `
+        <div class="brand-details">
+            <div class="brand-details-logo">
+                <div class="brand-logo">
+                    <i class="${brand.icon}"></i>
+                </div>
+            </div>
+            <div class="brand-details-info">
+                <h4>${brandName}</h4>
+                <p>${brand.description}</p>
+                <div class="brand-features">
+                    ${brand.features.map(feature => `<span>${feature}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+        <div class="brand-highlights">
+            ${brand.highlights.map(highlight => `
+                <div class="brand-highlight">
+                    <span class="brand-highlight-number">${highlight.number}</span>
+                    <span class="brand-highlight-label">${highlight.label}</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    // Afficher le modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBrandModal() {
+    const modal = document.getElementById('brandModal');
+    if (!modal) return;
+    
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function viewBrandProducts() {
+    showAnimatedNotification('Redirection vers le catalogue des produits...', 'info');
+    setTimeout(() => {
+        window.location.href = 'pages/catalog.html';
+    }, 1500);
+}
+
+// Fermer le modal en cliquant sur le fond
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('brandModal');
+    if (e.target === modal) {
+        closeBrandModal();
+    }
+});
+
+// Fermer le modal avec Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeBrandModal();
+    }
+});
+
 // Exporter les fonctions pour utilisation globale
 window.showAnimatedNotification = showAnimatedNotification;
 window.showLoading = showLoading;
+window.openBrandModal = openBrandModal;
+window.closeBrandModal = closeBrandModal;
+window.viewBrandProducts = viewBrandProducts;

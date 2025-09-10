@@ -3763,11 +3763,333 @@ body {
 .brand-card {
     transition: var(--transition-smooth);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.brand-card:hover::before {
+    opacity: 0.1;
 }
 
 .brand-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(220, 38, 38, 0.2);
+    border-color: var(--primary-red);
+}
+
+.brand-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo de marque */
+.brand-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.brand-card:hover .brand-logo {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
+}
+
+.brand-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+    transition: var(--transition-smooth);
+}
+
+.brand-card:hover h4 {
+    color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+.brand-card p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.brand-card:hover p {
+    color: var(--dark-gray);
+}
+
+.brand-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.brand-features span {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.brand-card:hover .brand-features span {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+}
+
+/* Statistiques de marque */
+.brand-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.brand-stat {
+    text-align: center;
+}
+
+.brand-stat-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    display: block;
+}
+
+.brand-stat-label {
+    font-size: 0.7rem;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Bouton d'action sur la carte */
+.brand-action {
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+}
+
+.brand-card:hover .brand-action {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-btn {
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.brand-btn:hover {
+    background: var(--primary-red);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Modal des marques */
+.brand-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.brand-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.brand-modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.brand-modal.active .brand-modal-content {
+    transform: scale(1);
+}
+
+.brand-modal-header {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-modal-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.brand-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+}
+
+.brand-modal-close:hover {
+    background: #f3f4f6;
+    color: var(--dark-gray);
+}
+
+.brand-modal-body {
+    padding: 2rem;
+}
+
+.brand-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.brand-details-logo {
+    text-align: center;
+}
+
+.brand-details-logo .brand-logo {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.brand-details-info h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.brand-details-info p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.brand-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.brand-highlight {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.brand-highlight:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+.brand-highlight-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.brand-highlight-label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.brand-modal-footer {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Responsive pour le modal */
+@media (max-width: 768px) {
+    .brand-details {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .brand-modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .brand-modal-footer {
+        flex-direction: column;
+    }
 }
 
 /* Effets de texte animé */
