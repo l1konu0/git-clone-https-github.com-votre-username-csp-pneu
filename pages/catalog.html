@@ -6,48 +6,56 @@
     <title>Catalogue - CSP Pneu</title>
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style_new.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header moderne et interactif -->
     <header class="header">
         <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="../index.html">
-                        <i class="fas fa-tire"></i>
-                        <span>CSP Pneu</span>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="catalog.html" class="nav-link">Catalogue</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="services.html" class="nav-link">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/" class="nav-link admin-link">Admin</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <a href="../index.html">
+                            <img src="../assets/csp_logo.svg" alt="CSP - Chahbani Star Pneus" width="220">
+                        </a>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn-login" onclick="openLogin()">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Connexion
+                        </button>
+                        <div class="user-info"></div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="catalog.html" class="nav-link">Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="services.html" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/" class="nav-link admin-link">Admin</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-    <!-- Panier flottant -->
-    <div class="cart-wheel" onclick="openCart()">
+    <!-- Icônes flottantes interactives -->
+    <div class="ai-wheel" onclick="openAI()" title="Assistant IA">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <div class="cart-wheel" onclick="openCart()" title="Mon panier">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="cartCount">0</span>
     </div>
@@ -84,16 +92,18 @@
     </div>
     
     <main class="main-content">
+        <!-- En-tête du catalogue -->
         <section class="catalog-header">
             <div class="container">
-                <h1>Notre catalogue de pneus</h1>
-                <p>Découvrez notre large gamme de pneus pour tous types de véhicules</p>
+                <h1 class="animate-on-scroll">Notre catalogue de pneus</h1>
+                <p class="animate-on-scroll">Découvrez notre large gamme de pneus pour tous types de véhicules</p>
             </div>
         </section>
 
+        <!-- Filtres interactifs -->
         <section class="catalog-filters">
             <div class="container">
-                <div class="filters">
+                <div class="filters animate-on-scroll">
                     <div class="filter-group">
                         <label for="marque">Marque :</label>
                         <select id="marque" name="marque">
@@ -123,10 +133,11 @@
             </div>
         </section>
 
+        <!-- Grille de produits -->
         <section class="catalog-grid">
             <div class="container">
                 <div class="products-grid" id="products-grid">
-                    <!-- Les produits seront chargés dynamiquement via JavaScript -->
+                    <!-- Les produits seront chargés dynamiquement -->
                     <div class="loading">
                         <i class="fas fa-spinner fa-spin"></i>
                         <p>Chargement des produits...</p>
@@ -136,6 +147,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-container">
@@ -285,7 +297,6 @@
             }
             
             showNotification('Fonctionnalité de commande en cours de développement', 'info');
-            // Ici, vous pourrez ajouter la logique de commande
         }
         
         // Fonction pour ajouter un article au panier
@@ -309,7 +320,7 @@
             
             // Animation de confirmation
             const cartWheel = document.querySelector('.cart-wheel');
-            cartWheel.style.animation = 'bounce 0.5s ease';
+            cartWheel.style.animation = 'pulse 0.5s ease';
             setTimeout(() => {
                 cartWheel.style.animation = '';
             }, 500);
@@ -332,41 +343,6 @@
                 <span>${message}</span>
             `;
             
-            // Ajouter les styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? '#10b981' : '#3b82f6'};
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-weight: 500;
-                animation: slideIn 0.3s ease;
-            `;
-            
-            // Ajouter l'animation CSS
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-            
             document.body.appendChild(notification);
             
             // Supprimer après 3 secondes
@@ -383,9 +359,26 @@
             document.getElementById('cartCount').textContent = totalItems;
         }
         
-        // Initialiser le compteur du panier au chargement de la page
+        // Animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initialiser au chargement de la page
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
+            animateOnScroll();
+            
+            // Écouter le scroll pour les animations
+            window.addEventListener('scroll', animateOnScroll);
         });
     </script>
 </body>

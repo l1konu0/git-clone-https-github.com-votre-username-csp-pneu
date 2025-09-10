@@ -6,59 +6,56 @@
     <title>CSP Pneu - Votre spécialiste pneus</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style_new.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header moderne et interactif -->
     <header class="header">
         <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">
-                        <img src="assets/csp_logo.svg" alt="CSP - Chahbani Star Pneus" width="220">
-                    </a>
-                </div>
-                <div class="nav-buttons">
-                    <button class="btn-login" onclick="openLogin()">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Connexion
-                    </button>
-                    <div class="user-info"></div>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/catalog.html" class="nav-link">Catalogue</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/services.html" class="nav-link">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/contact.html" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="admin/" class="nav-link admin-link">Admin</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <a href="index.html">
+                            <img src="assets/csp_logo.svg" alt="CSP - Chahbani Star Pneus" width="220">
+                        </a>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn-login" onclick="openLogin()">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Connexion
+                        </button>
+                        <div class="user-info"></div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/catalog.html" class="nav-link">Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/services.html" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/contact.html" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/" class="nav-link admin-link">Admin</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-    <!-- Roue IA flottante -->
-    <div class="ai-wheel" onclick="openAI()">
+    <!-- Icônes flottantes interactives -->
+    <div class="ai-wheel" onclick="openAI()" title="Assistant IA">
         <i class="fas fa-robot"></i>
     </div>
     
-    <!-- Panier flottant -->
-    <div class="cart-wheel" onclick="openCart()">
+    <div class="cart-wheel" onclick="openCart()" title="Mon panier">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="cartCount">0</span>
     </div>
@@ -95,13 +92,22 @@
     </div>
     
     <main class="main-content">
+        <!-- Hero section redessinée -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Bienvenue chez CSP Pneu</h1>
-                <p>Votre spécialiste pneus depuis 25 ans. Qualité, service et expertise au rendez-vous.</p>
-                <div class="hero-buttons">
-                    <a href="pages/catalog.html" class="btn btn-primary">Voir notre catalogue</a>
-                    <a href="pages/contact.html" class="btn btn-secondary">Nous contacter</a>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Bienvenue chez CSP Pneu</h1>
+                    <p>Votre spécialiste pneus depuis 25 ans. Qualité, service et expertise au rendez-vous.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/catalog.html" class="btn btn-primary">
+                            <i class="fas fa-tire"></i>
+                            Voir notre catalogue
+                        </a>
+                        <a href="pages/contact.html" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            Nous contacter
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
@@ -109,10 +115,11 @@
             </div>
         </section>
 
+        <!-- Section à propos redessinée -->
         <section class="about-us">
             <div class="container">
-                <h2>Qui sommes-nous ?</h2>
-                <div class="about-content">
+                <h2 class="animate-on-scroll">Qui sommes-nous ?</h2>
+                <div class="about-content animate-on-scroll">
                     <div class="about-text">
                         <p>CSP Pneu est votre partenaire de confiance depuis plus de 25 ans dans le domaine des pneus et de la mécanique automobile. Notre expertise et notre passion nous permettent de vous offrir des services de qualité exceptionnelle.</p>
                         <p>Nous nous engageons à vous fournir les meilleurs pneus des plus grandes marques mondiales, avec un service personnalisé et des conseils d'experts pour répondre à tous vos besoins.</p>
@@ -138,32 +145,33 @@
             </div>
         </section>
 
+        <!-- Section fonctionnalités redessinée -->
         <section class="features">
             <div class="container">
-                <h2>Pourquoi choisir CSP Pneu ?</h2>
+                <h2 class="animate-on-scroll">Pourquoi choisir CSP Pneu ?</h2>
                 <div class="features-grid">
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll">
                         <div class="feature-icon">
                             <i class="fas fa-tools"></i>
                         </div>
                         <h3>Expertise technique</h3>
                         <p>Plus de 25 ans d'expérience dans le domaine des pneus et de la mécanique automobile.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3>Garantie qualité</h3>
                         <p>Tous nos pneus sont garantis et montés par des professionnels qualifiés.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll">
                         <div class="feature-icon">
                             <i class="fas fa-clock"></i>
                         </div>
                         <h3>Service rapide</h3>
                         <p>Montage et équilibrage en moins de 30 minutes pour la plupart des véhicules.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll">
                         <div class="feature-icon">
                             <i class="fas fa-euro-sign"></i>
                         </div>
@@ -174,35 +182,36 @@
             </div>
         </section>
 
+        <!-- Section marques partenaires -->
         <section class="brands">
             <div class="container">
-                <h2>Nos marques partenaires</h2>
+                <h2 class="animate-on-scroll">Nos marques partenaires</h2>
                 <div class="brands-grid">
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">B</div>
                         <span>Bridgestone</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">C</div>
                         <span>Continental</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">H</div>
                         <span>Hankook</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">G</div>
                         <span>Goodyear</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">A</div>
                         <span>Amine</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">L</div>
                         <span>Laufenn</span>
                     </div>
-                    <div class="brand-item">
+                    <div class="brand-item animate-on-scroll">
                         <div class="brand-logo">N</div>
                         <span>Nexen</span>
                     </div>
@@ -210,17 +219,22 @@
             </div>
         </section>
 
+        <!-- Section CTA -->
         <section class="cta">
             <div class="container">
-                <div class="cta-content">
+                <div class="cta-content animate-on-scroll">
                     <h2>Besoin de nouveaux pneus ?</h2>
                     <p>Consultez notre catalogue en ligne ou venez nous rendre visite en magasin.</p>
-                    <a href="pages/catalog.html" class="btn btn-primary btn-large">Découvrir nos pneus</a>
+                    <a href="pages/catalog.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-tire"></i>
+                        Découvrir nos pneus
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-container">
@@ -268,101 +282,6 @@
     <script src="assets/js/script.js"></script>
     <script src="assets/js/auth.js"></script>
     <script>
-        // Fonction pour ajouter un article au panier
-        function addToCart(productId, productName, price) {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: productName,
-                    price: price,
-                    quantity: 1
-                });
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            
-            // Animation de confirmation
-            const cartWheel = document.querySelector('.cart-wheel');
-            cartWheel.style.animation = 'bounce 0.5s ease';
-            setTimeout(() => {
-                cartWheel.style.animation = '';
-            }, 500);
-            
-            // Notification de confirmation
-            showNotification(`${productName} ajouté au panier !`, 'success');
-        }
-        
-        // Fonction pour afficher une notification
-        function showNotification(message, type = 'info') {
-            // Supprimer les notifications existantes
-            const existingNotifications = document.querySelectorAll('.notification');
-            existingNotifications.forEach(notif => notif.remove());
-            
-            // Créer la notification
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
-            `;
-            
-            // Ajouter les styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? '#10b981' : '#3b82f6'};
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-weight: 500;
-                animation: slideIn 0.3s ease;
-            `;
-            
-            // Ajouter l'animation CSS
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-            
-            document.body.appendChild(notification);
-            
-            // Supprimer après 3 secondes
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-        
-        // Fonction pour mettre à jour le compteur du panier
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').textContent = totalItems;
-        }
-        
         // Fonction pour ouvrir l'IA
         function openAI() {
             showNotification('Assistant IA en cours de développement', 'info');
@@ -465,12 +384,88 @@
             }
             
             showNotification('Fonctionnalité de commande en cours de développement', 'info');
-            // Ici, vous pourrez ajouter la logique de commande
         }
         
-        // Initialiser le compteur du panier au chargement de la page
+        // Fonction pour ajouter un article au panier
+        function addToCart(productId, productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Animation de confirmation
+            const cartWheel = document.querySelector('.cart-wheel');
+            cartWheel.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                cartWheel.style.animation = '';
+            }, 500);
+            
+            // Notification de confirmation
+            showNotification(`${productName} ajouté au panier !`, 'success');
+        }
+        
+        // Fonction pour afficher une notification
+        function showNotification(message, type = 'info') {
+            // Supprimer les notifications existantes
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Créer la notification
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Fonction pour mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+        
+        // Animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initialiser au chargement de la page
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
+            animateOnScroll();
+            
+            // Écouter le scroll pour les animations
+            window.addEventListener('scroll', animateOnScroll);
         });
     </script>
 </body>
