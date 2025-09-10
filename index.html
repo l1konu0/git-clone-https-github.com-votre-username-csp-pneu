@@ -97,35 +97,36 @@
             <div class="hero-background">
                 <img src="assets/images/csp-shop-background.svg" alt="Magasin CSP Pneu" class="hero-bg-image">
                 <div class="hero-overlay"></div>
+                <div class="particles" id="particles"></div>
             </div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
-                            <span class="title-line">Votre spécialiste</span>
-                            <span class="title-line highlight">pneus premium</span>
-                            <span class="title-line">depuis 25 ans</span>
+                            <span class="title-line animate-fadeInUp">Votre spécialiste</span>
+                            <span class="title-line highlight animate-fadeInUp delay-200 text-glow">pneus premium</span>
+                            <span class="title-line animate-fadeInUp delay-400">depuis 25 ans</span>
                         </h1>
-                        <p class="hero-subtitle">
+                        <p class="hero-subtitle animate-fadeInUp delay-300">
                             Découvrez notre gamme exclusive de pneus haute performance, 
                             montés par des experts avec un service personnalisé d'exception.
                         </p>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">25+</span>
+                        <div class="hero-stats animate-fadeInUp delay-500">
+                            <div class="stat-item animate-scaleIn delay-600">
+                                <span class="stat-number animate-pulse">25+</span>
                                 <span class="stat-text">Années d'expertise</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">10K+</span>
+                            <div class="stat-item animate-scaleIn delay-700">
+                                <span class="stat-number animate-pulse">10K+</span>
                                 <span class="stat-text">Clients satisfaits</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">24/7</span>
+                            <div class="stat-item animate-scaleIn delay-800">
+                                <span class="stat-number animate-pulse">24/7</span>
                                 <span class="stat-text">Service d'urgence</span>
                             </div>
                         </div>
-                        <div class="hero-actions">
-                            <a href="pages/catalog.html" class="btn btn-primary btn-large">
+                        <div class="hero-actions animate-fadeInUp delay-900">
+                            <a href="pages/catalog.html" class="btn btn-primary btn-large animate-glow">
                                 <i class="fas fa-tire"></i>
                                 Découvrir nos pneus
                             </a>
@@ -148,12 +149,12 @@
         <!-- Section marques partenaires premium -->
         <section class="brands-premium">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header scroll-reveal">
                     <h2>Nos Marques Partenaires</h2>
                     <p>Les plus grandes marques mondiales de pneus à votre service</p>
                 </div>
                 <div class="brands-showcase">
-                    <div class="brand-card">
+                    <div class="brand-card scroll-reveal animate-float">
                         <h4>Bridgestone</h4>
                         <p>Innovation japonaise</p>
                         <div class="brand-features">
@@ -161,7 +162,7 @@
                             <span>Durabilité</span>
                         </div>
                     </div>
-                    <div class="brand-card">
+                    <div class="brand-card scroll-reveal animate-float delay-100">
                         <h4>Continental</h4>
                         <p>Précision allemande</p>
                         <div class="brand-features">
@@ -169,7 +170,7 @@
                             <span>Technologie</span>
                         </div>
                     </div>
-                    <div class="brand-card">
+                    <div class="brand-card scroll-reveal animate-float delay-200">
                         <h4>Michelin</h4>
                         <p>Excellence française</p>
                         <div class="brand-features">
@@ -177,7 +178,7 @@
                             <span>Innovation</span>
                         </div>
                     </div>
-                    <div class="brand-card">
+                    <div class="brand-card scroll-reveal animate-float delay-300">
                         <h4>Pirelli</h4>
                         <p>Sport italien</p>
                         <div class="brand-features">
@@ -185,7 +186,7 @@
                             <span>Performance</span>
                         </div>
                     </div>
-                    <div class="brand-card">
+                    <div class="brand-card scroll-reveal animate-float delay-400">
                         <h4>Goodyear</h4>
                         <p>Tradition américaine</p>
                         <div class="brand-features">
@@ -598,5 +599,6 @@
             window.addEventListener('scroll', animateOnScroll);
         });
     </script>
+    <script src="assets/js/animations.js"></script>
 </body>
 </html>
