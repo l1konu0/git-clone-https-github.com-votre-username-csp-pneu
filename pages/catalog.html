@@ -52,6 +52,37 @@
         <span class="cart-count" id="cartCount">0</span>
     </div>
     
+    <!-- Modal du panier -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Mon panier</h3>
+                <button class="cart-close-btn" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-modal-body" id="cartModalBody">
+                <!-- Le contenu du panier sera généré dynamiquement -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span class="total-label">Total :</span>
+                    <span class="total-amount" id="cartTotal">0.00€</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" onclick="clearCart()">
+                        <i class="fas fa-trash"></i>
+                        Vider le panier
+                    </button>
+                    <button class="btn btn-primary" onclick="proceedToCheckout()">
+                        <i class="fas fa-credit-card"></i>
+                        Commander
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <main class="main-content">
         <section class="catalog-header">
             <div class="container">
@@ -152,27 +183,109 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/catalog.js"></script>
     <script>
+        // Fonction pour ouvrir l'IA
+        function openAI() {
+            showNotification('Assistant IA en cours de développement', 'info');
+        }
+        
         // Fonction pour ouvrir le panier
         function openCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.add('show');
+            renderCartModal();
+        }
+        
+        // Fonction pour fermer le panier
+        function closeCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.remove('show');
+        }
+        
+        // Fonction pour rendre le contenu du modal de panier
+        function renderCartModal() {
+            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartModalBody = document.getElementById('cartModalBody');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cartItems.length === 0) {
+                cartModalBody.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Votre panier est vide</h4>
+                        <p>Parcourez notre catalogue pour ajouter des pneus !</p>
+                    </div>
+                `;
+                cartTotal.textContent = '0.00€';
+                return;
+            }
+            
+            let total = 0;
+            cartModalBody.innerHTML = cartItems.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price.toFixed(2)}€ par unité</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cart-item-total">${itemTotal.toFixed(2)}€</div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotal.textContent = total.toFixed(2) + '€';
+        }
+        
+        // Fonction pour mettre à jour la quantité d'un article
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartModal();
+            }
+        }
+        
+        // Fonction pour vider le panier
+        function clearCart() {
+            if (confirm('Êtes-vous sûr de vouloir vider votre panier ?')) {
+                localStorage.removeItem('cart');
+                updateCartCount();
+                renderCartModal();
+                showNotification('Panier vidé', 'info');
+            }
+        }
+        
+        // Fonction pour procéder à la commande
+        function proceedToCheckout() {
             const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
             if (cartItems.length === 0) {
-                alert('Votre panier est vide. Parcourez notre catalogue pour ajouter des pneus !');
-            } else {
-                let cartContent = 'Votre panier :\n\n';
-                let total = 0;
-                
-                cartItems.forEach((item, index) => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    cartContent += `${index + 1}. ${item.name}\n`;
-                    cartContent += `   Prix: ${item.price.toFixed(2)}€ x ${item.quantity} = ${itemTotal.toFixed(2)}€\n\n`;
-                });
-                
-                cartContent += `Total: ${total.toFixed(2)}€\n\n`;
-                cartContent += 'Fonctionnalité de commande en cours de développement.';
-                
-                alert(cartContent);
+                showNotification('Votre panier est vide', 'info');
+                return;
             }
+            
+            showNotification('Fonctionnalité de commande en cours de développement', 'info');
+            // Ici, vous pourrez ajouter la logique de commande
         }
         
         // Fonction pour ajouter un article au panier
