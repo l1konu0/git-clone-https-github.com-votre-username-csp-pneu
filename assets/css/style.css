@@ -141,17 +141,17 @@ body {
 }
 
 .btn-login {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--pure-white);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: var(--pure-white);
+    color: var(--dark-gray);
+    border: 2px solid var(--dark-gray);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn-login::before {
@@ -161,7 +161,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(31, 41, 55, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -170,8 +170,9 @@ body {
 }
 
 .btn-login:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: var(--dark-gray);
+    color: var(--pure-white);
+    border-color: var(--dark-gray);
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
@@ -225,7 +226,7 @@ body {
     position: fixed;
     width: 60px;
     height: 60px;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--dark-gray) 0%, #374151 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -273,7 +274,7 @@ body {
 
 /* Hero section ultra moderne */
 .hero-modern {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 50%, #000000 100%);
+    background: linear-gradient(135deg, #1f2937 0%, #374151 30%, #4b5563 70%, #6b7280 100%);
     color: var(--pure-white);
     padding: 0;
     position: relative;
@@ -484,15 +485,15 @@ body {
 }
 
 .btn-primary {
-    background: var(--pure-white);
-    color: var(--primary-red);
+    background: var(--dark-gray);
+    color: var(--pure-white);
     box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
-    color: var(--dark-red);
+    background: #374151;
 }
 
 .btn-secondary {
@@ -929,7 +930,7 @@ body {
 
 /* Section services premium */
 .services-premium {
-    background: var(--pure-white);
+    background: linear-gradient(135deg, var(--pure-white) 0%, #f8f9fa 100%);
 }
 
 .section-header {
@@ -1049,7 +1050,7 @@ body {
 
 /* Section marques premium */
 .brands-premium {
-    background: var(--gradient-card);
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--pure-white) 100%);
 }
 
 .brands-showcase {
@@ -1126,7 +1127,7 @@ body {
 
 /* Section témoignages */
 .testimonials {
-    background: var(--pure-white);
+    background: linear-gradient(135deg, var(--pure-white) 0%, #f1f5f9 100%);
 }
 
 .testimonials-grid {
@@ -1197,7 +1198,7 @@ body {
 
 /* Section CTA finale */
 .cta-final {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--dark-gray) 0%, #374151 50%, #4b5563 100%);
     color: var(--pure-white);
     text-align: center;
 }
