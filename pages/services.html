@@ -8,177 +8,299 @@
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="../index.html">
-                        <i class="fas fa-tire"></i>
-                        <span>CSP Pneu</span>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="catalog.html" class="nav-link">Catalogue</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="services.html" class="nav-link">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/" class="nav-link admin-link">Admin</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <a href="../index.html">
+                            <img src="../assets/csp_logo.svg" alt="CSP - Chahbani Star Pneus" width="220">
+                        </a>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn-login" onclick="openLogin()">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Connexion
+                        </button>
+                        <div class="user-info"></div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="catalog.html" class="nav-link">Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="services.html" class="nav-link active">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/" class="nav-link admin-link">Admin</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
+    
+    <!-- Panier flottant -->
+    <div class="cart-wheel" onclick="openCart()" title="Mon panier">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+    <!-- Modal du panier -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Mon panier</h3>
+                <button class="cart-close-btn" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-modal-body" id="cartModalBody">
+                <!-- Le contenu du panier sera généré dynamiquement -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span class="total-label">Total :</span>
+                    <span class="total-amount" id="cartTotal">0.00€</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" onclick="clearCart()">
+                        <i class="fas fa-trash"></i>
+                        Vider le panier
+                    </button>
+                    <button class="btn btn-primary" onclick="proceedToCheckout()">
+                        <i class="fas fa-credit-card"></i>
+                        Commander
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <main class="main-content">
-        <section class="services-header">
+        <!-- Hero section services -->
+        <section class="services-hero">
             <div class="container">
-                <h1>Nos Services</h1>
-                <p>Des services complets pour vos pneus et votre véhicule</p>
-            </div>
-        </section>
-
-        <section class="services-grid">
-            <div class="container">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Montage de pneus</h3>
-                    <p>Montage professionnel de vos pneus avec équipements de dernière génération.</p>
-                    <ul>
-                        <li>Montage sur jantes acier et alliage</li>
-                        <li>Contrôle de pression</li>
-                        <li>Vérification de l'état des valves</li>
-                        <li>Nettoyage des jantes</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Équilibrage</h3>
-                    <p>Équilibrage précis pour un confort de conduite optimal et une usure uniforme.</p>
-                    <ul>
-                        <li>Équilibrage statique et dynamique</li>
-                        <li>Contrôle de la géométrie</li>
-                        <li>Correction des vibrations</li>
-                        <li>Garantie de l'équilibrage</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3>Géométrie</h3>
-                    <p>Réglage précis de la géométrie pour une tenue de route parfaite.</p>
-                    <ul>
-                        <li>Contrôle de parallélisme</p>
-                        <li>Réglage de carrossage</li>
-                        <li>Réglage de chasse</li>
-                        <li>Rapport de géométrie détaillé</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h3>Réparation</h3>
-                    <p>Réparation de pneus selon les normes de sécurité les plus strictes.</p>
-                    <ul>
-                        <li>Réparation de crevaison</li>
-                        <li>Réparation de flanc</li>
-                        <li>Contrôle de sécurité</li>
-                        <li>Garantie de réparation</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-warehouse"></i>
-                    </div>
-                    <h3>Stockage</h3>
-                    <p>Stockage sécurisé de vos pneus hors saison dans nos locaux climatisés.</p>
-                    <ul>
-                        <li>Stockage climatisé</li>
-                        <li>Marquage et identification</li>
-                        <li>Contrôle de pression</li>
-                        <li>Service de montage/démontage</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Conseil personnalisé</h3>
-                    <p>Conseils d'experts pour choisir les pneus adaptés à votre véhicule et usage.</p>
-                    <ul>
-                        <li>Analyse de vos besoins</li>
-                        <li>Recommandations personnalisées</li>
-                        <li>Comparatif de marques</li>
-                        <li>Suivi personnalisé</li>
-                    </ul>
+                <div class="hero-content">
+                    <h1>Nos Services Premium</h1>
+                    <p>Une expertise technique au service de votre sécurité et de votre confort de conduite</p>
                 </div>
             </div>
         </section>
 
-        <section class="pricing">
+        <!-- Services principaux -->
+        <section class="services-main">
             <div class="container">
-                <h2>Nos Tarifs</h2>
-                <div class="pricing-table">
-                    <div class="pricing-card">
-                        <h3>Montage simple</h3>
-                        <div class="price">15€</div>
-                        <ul>
-                            <li>Montage sur jante acier</li>
-                            <li>Contrôle de pression</li>
-                            <li>Nettoyage</li>
-                        </ul>
+                <div class="services-grid">
+                    <div class="service-card-large">
+                        <div class="service-icon-large">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Montage de Pneus</h3>
+                            <p class="service-description">
+                                Montage professionnel de vos pneus avec équilibrage de précision. 
+                                Nos techniciens certifiés utilisent un équipement de pointe pour garantir 
+                                une installation parfaite et une conduite optimale.
+                            </p>
+                            <div class="service-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Équilibrage de précision</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Contrôle de géométrie</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Garantie montage</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-label">À partir de</span>
+                                <span class="price-amount">25€</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pricing-card featured">
-                        <h3>Montage + Équilibrage</h3>
-                        <div class="price">25€</div>
-                        <ul>
-                            <li>Montage sur jante acier</li>
-                            <li>Équilibrage dynamique</li>
-                            <li>Contrôle de pression</li>
-                            <li>Nettoyage</li>
-                        </ul>
+
+                    <div class="service-card-large">
+                        <div class="service-icon-large">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Réparation de Pneus</h3>
+                            <p class="service-description">
+                                Réparation professionnelle de vos pneus endommagés. 
+                                Nous utilisons des techniques modernes et des matériaux de qualité 
+                                pour restaurer la performance et la sécurité de vos pneus.
+                            </p>
+                            <div class="service-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Colmatage professionnel</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Réchappage sur mesure</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Contrôle de sécurité</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-label">À partir de</span>
+                                <span class="price-amount">15€</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pricing-card">
-                        <h3>Montage + Équilibrage + Géométrie</h3>
-                        <div class="price">45€</div>
-                        <ul>
-                            <li>Montage sur jante acier</li>
-                            <li>Équilibrage dynamique</li>
-                            <li>Contrôle de géométrie</li>
-                            <li>Réglage si nécessaire</li>
-                        </ul>
+
+                    <div class="service-card-large">
+                        <div class="service-icon-large">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Livraison & Montage</h3>
+                            <p class="service-description">
+                                Service de livraison à domicile avec montage sur site. 
+                                Nos équipes mobiles se déplacent chez vous pour un service 
+                                complet et personnalisé, où que vous soyez.
+                            </p>
+                            <div class="service-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Livraison express</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Montage sur site</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Service gratuit</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                <span class="price-label">À partir de</span>
+                                <span class="price-amount">35€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services additionnels -->
+        <section class="services-additional">
+            <div class="container">
+                <h2>Services Additionnels</h2>
+                <div class="additional-grid">
+                    <div class="additional-card">
+                        <div class="additional-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h4>Géométrie</h4>
+                        <p>Réglage précis de la géométrie pour une usure uniforme et une conduite optimale</p>
+                        <span class="price">30€</span>
+                    </div>
+                    <div class="additional-card">
+                        <div class="additional-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Contrôle Technique</h4>
+                        <p>Vérification complète de l'état de vos pneus et de votre véhicule</p>
+                        <span class="price">20€</span>
+                    </div>
+                    <div class="additional-card">
+                        <div class="additional-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h4>Stockage Pneus</h4>
+                        <p>Stockage sécurisé de vos pneus d'été ou d'hiver entre les saisons</p>
+                        <span class="price">50€/an</span>
+                    </div>
+                    <div class="additional-card">
+                        <div class="additional-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Dépannage 24/7</h4>
+                        <p>Service d'urgence disponible 24h/24 pour tous vos problèmes de pneus</p>
+                        <span class="price">60€</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processus de service -->
+        <section class="service-process">
+            <div class="container">
+                <h2>Notre Processus de Service</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Diagnostic</h4>
+                            <p>Analyse complète de l'état de vos pneus et de votre véhicule</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Devis Gratuit</h4>
+                            <p>Établissement d'un devis détaillé et transparent sans engagement</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Intervention</h4>
+                            <p>Réalisation du service par nos techniciens certifiés</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Contrôle Qualité</h4>
+                            <p>Vérification finale et test de conduite pour garantir la qualité</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Besoin d'un service ?</h2>
+                    <p>Prenez rendez-vous dès maintenant et bénéficiez de notre expertise</p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-calendar"></i>
+                            Prendre rendez-vous
+                        </a>
+                        <a href="tel:0123456789" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i>
+                            Appeler maintenant
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-container">
@@ -224,5 +346,146 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script>
+        // Fonction pour ouvrir l'IA
+        function openAI() {
+            showNotification('Assistant IA en cours de développement', 'info');
+        }
+        
+        // Fonction pour ouvrir le panier
+        function openCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.add('show');
+            renderCartModal();
+        }
+        
+        // Fonction pour fermer le panier
+        function closeCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.remove('show');
+        }
+        
+        // Fonction pour rendre le contenu du modal de panier
+        function renderCartModal() {
+            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartModalBody = document.getElementById('cartModalBody');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cartItems.length === 0) {
+                cartModalBody.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Votre panier est vide</h4>
+                        <p>Parcourez notre catalogue pour ajouter des pneus !</p>
+                    </div>
+                `;
+                cartTotal.textContent = '0.00€';
+                return;
+            }
+            
+            let total = 0;
+            cartModalBody.innerHTML = cartItems.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <i class="fas fa-tire"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price.toFixed(2)}€ par unité</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cart-item-total">${itemTotal.toFixed(2)}€</div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotal.textContent = total.toFixed(2) + '€';
+        }
+        
+        // Fonction pour mettre à jour la quantité d'un article
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartModal();
+            }
+        }
+        
+        // Fonction pour vider le panier
+        function clearCart() {
+            if (confirm('Êtes-vous sûr de vouloir vider votre panier ?')) {
+                localStorage.removeItem('cart');
+                updateCartCount();
+                renderCartModal();
+                showNotification('Panier vidé', 'info');
+            }
+        }
+        
+        // Fonction pour procéder à la commande
+        function proceedToCheckout() {
+            const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cartItems.length === 0) {
+                showNotification('Votre panier est vide', 'info');
+                return;
+            }
+            
+            showNotification('Fonctionnalité de commande en cours de développement', 'info');
+        }
+        
+        // Fonction pour afficher une notification
+        function showNotification(message, type = 'info') {
+            // Supprimer les notifications existantes
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Créer la notification
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Fonction pour mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+        
+        // Initialiser au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
 </body>
 </html>
