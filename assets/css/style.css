@@ -1508,7 +1508,7 @@ body {
         width: 50px;
         height: 50px;
         top: 15px;
-        right: 75px;
+        right: 90px;
     }
     
     .cart-wheel i {
@@ -1582,7 +1582,7 @@ body {
 .cart-wheel {
     position: fixed;
     top: 20px;
-    right: 90px;
+    right: 100px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
