@@ -267,7 +267,7 @@ class AuthSystem {
                                 </div>
                                 <div class="order-details">
                                     <p><strong>Date:</strong> ${new Date(order.created_at).toLocaleDateString('fr-FR')}</p>
-                                    <p><strong>Total:</strong> ${order.total.toFixed(2)}€</p>
+                                    <p><strong>Total:</strong> ${order.total.toFixed(2)} TND</p>
                                     <p><strong>Adresse:</strong> ${order.adresse || 'Non renseignée'}</p>
                                 </div>
                                 <div class="order-items">
@@ -277,7 +277,7 @@ class AuthSystem {
                                             <span>${detail.pneus ? detail.pneus.marque + ' ' + detail.pneus.modele : 'Pneu ID: ' + detail.pneu_id}</span>
                                             <span>${detail.dimensions || ''}</span>
                                             <span>Qty: ${detail.quantite}</span>
-                                            <span>${detail.prix_unitaire.toFixed(2)}€</span>
+                                            <span>${detail.prix_unitaire.toFixed(2)} TND</span>
                                         </div>
                                     `).join('') : '<p>Détails non disponibles</p>'}
                                 </div>
@@ -337,7 +337,7 @@ class AuthSystem {
                             <h3>Informations commande</h3>
                             <p><strong>Date:</strong> ${new Date(order.created_at).toLocaleString('fr-FR')}</p>
                             <p><strong>Statut:</strong> <span class="status-${order.statut}">${order.statut}</span></p>
-                            <p><strong>Total:</strong> ${order.total.toFixed(2)}€</p>
+                            <p><strong>Total:</strong> ${order.total.toFixed(2)} TND</p>
                         </div>
                     </div>
                     <div class="order-items-details">
@@ -352,8 +352,8 @@ class AuthSystem {
                                     <span>Quantité: ${detail.quantite}</span>
                                 </div>
                                 <div class="item-price">
-                                    <span>Prix unitaire: ${detail.prix_unitaire.toFixed(2)}€</span>
-                                    <span class="total">Total: ${(detail.quantite * detail.prix_unitaire).toFixed(2)}€</span>
+                                    <span>Prix unitaire: ${detail.prix_unitaire.toFixed(2)} TND</span>
+                                    <span class="total">Total: ${(detail.quantite * detail.prix_unitaire).toFixed(2)} TND</span>
                                 </div>
                             </div>
                         `).join('') : '<p>Détails non disponibles</p>'}

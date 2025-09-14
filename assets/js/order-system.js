@@ -236,14 +236,14 @@ class OrderSystem {
                             </div>
                         </div>
                         <div class="item-price">
-                            <span class="price">${item.totalPrice.toFixed(2)}€</span>
+                            <span class="price">${item.totalPrice.toFixed(2)} TND</span>
                         </div>
                     </div>
                 `).join('')}
             </div>
             <div class="cart-summary">
                 <div class="total">
-                    <span>Total: <strong>${this.getCartTotal().toFixed(2)}€</strong></span>
+                    <span>Total: <strong>${this.getCartTotal().toFixed(2)} TND</strong></span>
                 </div>
                 <button class="btn btn-primary btn-checkout" onclick="orderSystem.showCheckoutForm()">
                     <i class="fas fa-credit-card"></i>
@@ -301,11 +301,11 @@ class OrderSystem {
                             ${cartDetails.map(item => `
                                 <div class="summary-item">
                                     <span>${item.tire.brand} ${item.tire.model} x${item.quantity}</span>
-                                    <span>${item.totalPrice.toFixed(2)}€</span>
+                                    <span>${item.totalPrice.toFixed(2)} TND</span>
                                 </div>
                             `).join('')}
                             <div class="summary-total">
-                                <strong>Total: ${this.getCartTotal().toFixed(2)}€</strong>
+                                <strong>Total: ${this.getCartTotal().toFixed(2)} TND</strong>
                             </div>
                         </div>
                     </form>
@@ -368,7 +368,7 @@ class OrderSystem {
                         <p><strong>Client :</strong> ${order.customer.name}</p>
                         <p><strong>Email :</strong> ${order.customer.email}</p>
                         <p><strong>Téléphone :</strong> ${order.customer.phone}</p>
-                        <p><strong>Total :</strong> ${order.total.toFixed(2)}€</p>
+                        <p><strong>Total :</strong> ${order.total.toFixed(2)} TND</p>
                         <p><strong>Statut :</strong> ${order.status}</p>
                     </div>
                     <p>Nous vous contacterons bientôt pour confirmer la livraison.</p>

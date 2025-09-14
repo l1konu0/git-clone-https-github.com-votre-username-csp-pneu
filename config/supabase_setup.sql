@@ -75,18 +75,18 @@ CREATE TRIGGER update_pneus_updated_at BEFORE UPDATE ON pneus
 CREATE TRIGGER update_commandes_updated_at BEFORE UPDATE ON commandes
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- Insertion de données de test
+-- Insertion de données de test (prix en dinars tunisiens TND)
 INSERT INTO pneus (marque, modele, dimensions, type, prix, stock, description, image_url) VALUES
-('Michelin', 'Energy Saver+', '205/55 R16', 'été', 89.90, 15, 'Pneu été haute performance avec faible résistance au roulement', 'michelin-energy-saver.svg'),
-('Bridgestone', 'Turanza T005', '215/60 R17', 'été', 95.50, 12, 'Confort et sécurité optimaux pour tous types de véhicules', 'bridgestone-turanza-t005.svg'),
-('Continental', 'WinterContact TS 860', '205/55 R16', 'hiver', 78.90, 8, 'Pneu hiver premium pour une sécurité maximale', 'continental-wintercontact.svg'),
-('Pirelli', 'P Zero', '225/45 R18', 'été', 125.00, 6, 'Pneu sport haute performance pour véhicules sportifs', 'pirelli-p-zero.svg'),
-('Goodyear', 'EfficientGrip Performance', '215/60 R17', '4saisons', 92.00, 20, 'Pneu 4 saisons pour un usage toute l''année', 'goodyear-efficientgrip.svg'),
-('Dunlop', 'Sport Maxx RT2', '235/40 R19', 'été', 135.50, 4, 'Pneu sport ultra haute performance', 'dunlop-sport-maxx.svg'),
-('Hankook', 'Ventus Prime3 K125', '205/55 R16', 'été', 65.90, 18, 'Excellent rapport qualité-prix', 'hankook-ventus.svg'),
-('Toyo', 'Proxes Sport', '225/45 R17', 'été', 88.00, 10, 'Pneu sport pour conduite dynamique', 'toyo-proxes.svg'),
-('Yokohama', 'Advan Sport V105', '235/40 R18', 'été', 110.00, 7, 'Pneu sport premium pour véhicules de luxe', 'yokohama-advan.svg'),
-('Michelin', 'CrossClimate+', '215/60 R17', '4saisons', 105.90, 14, 'Pneu 4 saisons certifié neige', 'michelin-crossclimate.svg');
+('Michelin', 'Energy Saver+', '205/55 R16', 'été', 297.00, 15, 'Pneu été haute performance avec faible résistance au roulement', 'michelin-energy-saver.svg'),
+('Bridgestone', 'Turanza T005', '215/60 R17', 'été', 315.00, 12, 'Confort et sécurité optimaux pour tous types de véhicules', 'bridgestone-turanza-t005.svg'),
+('Continental', 'WinterContact TS 860', '205/55 R16', 'hiver', 260.00, 8, 'Pneu hiver premium pour une sécurité maximale', 'continental-wintercontact.svg'),
+('Pirelli', 'P Zero', '225/45 R18', 'été', 413.00, 6, 'Pneu sport haute performance pour véhicules sportifs', 'pirelli-p-zero.svg'),
+('Goodyear', 'EfficientGrip Performance', '215/60 R17', '4saisons', 304.00, 20, 'Pneu 4 saisons pour un usage toute l''année', 'goodyear-efficientgrip.svg'),
+('Dunlop', 'Sport Maxx RT2', '235/40 R19', 'été', 447.00, 4, 'Pneu sport ultra haute performance', 'dunlop-sport-maxx.svg'),
+('Hankook', 'Ventus Prime3 K125', '205/55 R16', 'été', 217.00, 18, 'Excellent rapport qualité-prix', 'hankook-ventus.svg'),
+('Toyo', 'Proxes Sport', '225/45 R17', 'été', 290.00, 10, 'Pneu sport pour conduite dynamique', 'toyo-proxes.svg'),
+('Yokohama', 'Advan Sport V105', '235/40 R18', 'été', 363.00, 7, 'Pneu sport premium pour véhicules de luxe', 'yokohama-advan.svg'),
+('Michelin', 'CrossClimate+', '215/60 R17', '4saisons', 349.00, 14, 'Pneu 4 saisons certifié neige', 'michelin-crossclimate.svg');
 
 -- Insertion d'un administrateur par défaut (mot de passe: admin123)
 INSERT INTO admins (username, email, password_hash) VALUES

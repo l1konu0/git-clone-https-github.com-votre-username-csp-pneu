@@ -38,7 +38,7 @@ class CatalogManager {
                 modele: 'Pilot Sport 4',
                 dimensions: '245/40 ZR18',
                 type: 'été',
-                prix: 145.00,
+                prix: 479.00,
                 stock: 10,
                 description: 'Pneu sport ultra haute performance pour véhicules sportifs',
                 image: 'https://dxm.contentcenter.michelin.com/api/wedia/dam/transform/b98rpyxf61b4xe194hr9qcgqyy/4w-238_3528700093414_tire_michelin_pilot-sport-4_245-slash-40-zr18-97y-xl_a_main_1-30_nopad.webp?t=resize&height=500',
@@ -59,7 +59,7 @@ class CatalogManager {
                 modele: 'Turanza T005',
                 dimensions: '205/55 R16',
                 type: 'été',
-                prix: 75.50,
+                prix: 249.00,
                 stock: 8,
                 description: 'Confort et sécurité pour tous les trajets'
             },
@@ -69,7 +69,7 @@ class CatalogManager {
                 modele: 'WinterContact TS 860',
                 dimensions: '215/60 R16',
                 type: 'hiver',
-                prix: 95.00,
+                prix: 314.00,
                 stock: 12,
                 description: 'Pneu hiver pour une sécurité optimale'
             },
@@ -79,7 +79,7 @@ class CatalogManager {
                 modele: 'Cinturato P7',
                 dimensions: '235/45 R18',
                 type: '4saisons',
-                prix: 110.00,
+                prix: 363.00,
                 stock: 6,
                 description: 'Pneu 4 saisons haute technologie'
             },
@@ -89,7 +89,7 @@ class CatalogManager {
                 modele: 'Eagle F1 Asymmetric 5',
                 dimensions: '245/40 R19',
                 type: 'été',
-                prix: 125.00,
+                prix: 413.00,
                 stock: 4,
                 description: 'Performance et précision au volant'
             },
@@ -99,7 +99,7 @@ class CatalogManager {
                 modele: 'Sport Maxx RT2',
                 dimensions: '225/40 R18',
                 type: 'été',
-                prix: 98.50,
+                prix: 325.00,
                 stock: 10,
                 description: 'Sportivité et durabilité'
             }
@@ -122,7 +122,7 @@ class CatalogManager {
 
         if (prixFilter && prixValue) {
             prixFilter.addEventListener('input', (e) => {
-                prixValue.textContent = e.target.value + '€';
+                prixValue.textContent = e.target.value + ' TND';
                 this.filterProducts();
             });
         }
@@ -188,7 +188,7 @@ class CatalogManager {
                         </div>` : ''
                     }
                     <div class="product-price">
-                        <span class="price">${product.prix.toFixed(2)}€</span>
+                        <span class="price">${product.prix.toFixed(2)} TND</span>
                         <span class="stock">Stock: ${product.stock}</span>
                     </div>
                     <button class="btn btn-primary" onclick="addToCart(${product.id}, '${product.marque} ${product.modele}', ${product.prix})">
