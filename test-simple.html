@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Simple - CSP Pneu</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 2rem; }
+        .test { margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+        .success { background: #e8f5e8; border-color: #4caf50; }
+        .error { background: #ffebee; border-color: #f44336; }
+        button { padding: 1rem; margin: 0.5rem; cursor: pointer; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Simple - Bouton Connexion</h1>
+    
+    <div class="test">
+        <h3>Test 1 : Vérifier les Scripts</h3>
+        <p id="script-status">Vérification en cours...</p>
+    </div>
+    
+    <div class="test">
+        <h3>Test 2 : Bouton Connexion</h3>
+        <button class="btn-login" onclick="testLogin()">
+            <i class="fas fa-sign-in-alt"></i>
+            Connexion
+        </button>
+        <p id="login-status">Cliquez sur le bouton pour tester</p>
+    </div>
+    
+    <div class="test">
+        <h3>Test 3 : API Directe</h3>
+        <button onclick="testAPI()">Tester l'API</button>
+        <p id="api-status">Cliquez pour tester l'API</p>
+    </div>
+
+    <script>
+        // Test 1 : Vérifier les scripts
+        function checkScripts() {
+            const status = document.getElementById('script-status');
+            
+            if (typeof AuthSystem !== 'undefined') {
+                status.innerHTML = '✅ Classe AuthSystem chargée';
+                status.className = 'test success';
+            } else {
+                status.innerHTML = '❌ Classe AuthSystem non chargée';
+                status.className = 'test error';
+            }
+        }
+
+        // Test 2 : Test du bouton
+        function testLogin() {
+            const status = document.getElementById('login-status');
+            
+            try {
+                if (window.authSystem) {
+                    status.innerHTML = '✅ Système d\'authentification disponible';
+                    status.className = 'test success';
+                    
+                    // Essayer d'ouvrir la modal
+                    window.authSystem.showLoginModal();
+                } else {
+                    status.innerHTML = '❌ Système d\'authentification non disponible';
+                    status.className = 'test error';
+                }
+            } catch (error) {
+                status.innerHTML = '❌ Erreur: ' + error.message;
+                status.className = 'test error';
+            }
+        }
+
+        // Test 3 : Test de l'API
+        async function testAPI() {
+            const status = document.getElementById('api-status');
+            status.innerHTML = '🔄 Test en cours...';
+            
+            try {
+                const response = await fetch('/api/auth/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token: 'test' })
+                });
+
+                if (response.ok) {
+                    status.innerHTML = '✅ API accessible';
+                    status.className = 'test success';
+                } else {
+                    status.innerHTML = 'ℹ️ API répond avec le code: ' + response.status;
+                    status.className = 'test';
+                }
+            } catch (error) {
+                status.innerHTML = '❌ Erreur API: ' + error.message;
+                status.className = 'test error';
+            }
+        }
+
+        // Vérifications au chargement
+        window.addEventListener('load', () => {
+            checkScripts();
+        });
+    </script>
+</body>
+</html>

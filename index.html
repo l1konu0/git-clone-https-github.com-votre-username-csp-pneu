@@ -842,6 +842,22 @@
     <script src="assets/js/auth-system.js"></script>
     <script src="debug.js"></script>
     <script>
+        // Script de débogage simple
+        console.log('🔍 Débogage CSP Pneu');
+        console.log('AuthSystem disponible:', typeof AuthSystem);
+        console.log('authSystem instance:', window.authSystem);
+        console.log('Bouton connexion:', document.querySelector('.btn-login'));
+        
+        // Vérifier si le bouton existe
+        const loginBtn = document.querySelector('.btn-login');
+        if (loginBtn) {
+            console.log('✅ Bouton connexion trouvé');
+            console.log('onclick:', loginBtn.onclick);
+        } else {
+            console.log('❌ Bouton connexion non trouvé');
+        }
+    </script>
+    <script>
         // Fonction pour ouvrir l'IA
         function openAI() {
             showNotification('Assistant IA en cours de développement', 'info');
