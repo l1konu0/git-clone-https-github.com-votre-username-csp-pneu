@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Authentification - CSP Pneu</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <h1>Test du Système d'Authentification</h1>
+        
+        <div id="test-results" style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+            <h3>Résultats des Tests :</h3>
+            <div id="results"></div>
+        </div>
+
+        <div style="margin: 2rem 0;">
+            <button onclick="testAuth()" class="btn btn-primary">Tester l'Authentification</button>
+            <button onclick="testAPI()" class="btn btn-secondary">Tester l'API</button>
+            <button onclick="testLogin()" class="btn btn-success">Tester la Connexion</button>
+        </div>
+
+        <div id="login-test" style="margin: 2rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+            <h3>Test de Connexion :</h3>
+            <form id="test-login-form">
+                <div style="margin: 1rem 0;">
+                    <label>Email :</label>
+                    <input type="email" id="test-email" value="admin@csppneu.fr" style="width: 100%; padding: 0.5rem; margin: 0.5rem 0;">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label>Mot de passe :</label>
+                    <input type="password" id="test-password" value="admin123" style="width: 100%; padding: 0.5rem; margin: 0.5rem 0;">
+                </div>
+                <button type="submit" class="btn btn-primary">Tester la Connexion</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/auth-system.js"></script>
+    <script>
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.style.margin = '0.5rem 0';
+            div.style.padding = '0.5rem';
+            div.style.borderRadius = '4px';
+            div.style.backgroundColor = type === 'error' ? '#ffebee' : type === 'success' ? '#e8f5e8' : '#e3f2fd';
+            div.style.color = type === 'error' ? '#c62828' : type === 'success' ? '#2e7d32' : '#1565c0';
+            div.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            results.appendChild(div);
+        }
+
+        async function testAuth() {
+            addResult('Test du système d\'authentification...');
+            
+            try {
+                // Test 1: Vérifier si la classe existe
+                if (typeof AuthSystem !== 'undefined') {
+                    addResult('✓ Classe AuthSystem trouvée', 'success');
+                } else {
+                    addResult('✗ Classe AuthSystem non trouvée', 'error');
+                    return;
+                }
+
+                // Test 2: Vérifier si l'instance existe
+                if (window.authSystem) {
+                    addResult('✓ Instance authSystem créée', 'success');
+                } else {
+                    addResult('✗ Instance authSystem non créée', 'error');
+                }
+
+                // Test 3: Vérifier l'état de connexion
+                const token = localStorage.getItem('auth_token');
+                if (token) {
+                    addResult('✓ Token trouvé dans localStorage', 'success');
+                } else {
+                    addResult('ℹ Aucun token trouvé (utilisateur non connecté)', 'info');
+                }
+
+            } catch (error) {
+                addResult(`✗ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAPI() {
+            addResult('Test des API...');
+            
+            try {
+                // Test de l'API de vérification
+                const response = await fetch('/api/auth/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token: 'test' })
+                });
+
+                if (response.ok) {
+                    addResult('✓ API de vérification accessible', 'success');
+                } else {
+                    addResult(`ℹ API de vérification répond avec le code: ${response.status}`, 'info');
+                }
+
+                // Test de l'API des pneus
+                const pneusResponse = await fetch('/api/pneus');
+                if (pneusResponse.ok) {
+                    addResult('✓ API des pneus accessible', 'success');
+                } else {
+                    addResult(`✗ API des pneus inaccessible: ${pneusResponse.status}`, 'error');
+                }
+
+            } catch (error) {
+                addResult(`✗ Erreur API: ${error.message}`, 'error');
+            }
+        }
+
+        async function testLogin() {
+            addResult('Test de connexion...');
+            
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult('✓ Connexion réussie!', 'success');
+                    addResult(`Utilisateur: ${data.user.name} (${data.user.email})`, 'success');
+                } else {
+                    addResult(`✗ Erreur de connexion: ${data.error}`, 'error');
+                }
+
+            } catch (error) {
+                addResult(`✗ Erreur de connexion: ${error.message}`, 'error');
+            }
+        }
+
+        // Gérer le formulaire de test
+        document.getElementById('test-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            testLogin();
+        });
+
+        // Tests automatiques au chargement
+        window.addEventListener('load', () => {
+            addResult('Page de test chargée', 'info');
+            testAuth();
+        });
+    </script>
+</body>
+</html>
