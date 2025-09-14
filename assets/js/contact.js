@@ -52,8 +52,8 @@ class ContactManager {
                 pneuId: new URLSearchParams(window.location.search).get('pneu')
             };
 
-            // Envoyer les données à l'API
-            const response = await fetch('/api/contact', {
+            // Envoyer les données à l'API Supabase
+            const response = await fetch('/api/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -129,31 +129,42 @@ class OrderSystem {
                 throw new Error('Panier vide');
             }
 
-            // Vérifier la disponibilité de tous les pneus
-            for (const item of cartDetails) {
-                const tire = window.inventoryManager.getTireById(item.tireId);
-                if (!tire || tire.stock < item.quantity) {
-                    throw new Error(`Stock insuffisant pour ${tire ? tire.brand + ' ' + tire.model : 'un pneu'}`);
-                }
+            // Préparer les détails de commande pour l'API
+            const orderDetails = cartDetails.map(item => ({
+                pneu_id: item.tireId,
+                quantite: item.quantity,
+                prix_unitaire: item.tire.price || item.tire.prix
+            }));
+
+            // Envoyer la commande à l'API Supabase
+            const response = await fetch('/api/commandes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nom: customerInfo.name,
+                    email: customerInfo.email,
+                    telephone: customerInfo.phone,
+                    adresse: customerInfo.address,
+                    total: this.getCartTotal(),
+                    details: orderDetails
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Erreur lors de la création de la commande');
             }
 
-            // Réserver tous les pneus
-            const reservedTires = [];
-            for (const item of cartDetails) {
-                const reservedTire = window.inventoryManager.reserveTire(item.tireId, item.quantity);
-                reservedTires.push({
-                    ...item,
-                    reservedTire: reservedTire
-                });
-            }
-
-            // Créer la commande
-            const order = window.inventoryManager.addOrder({
+            const orderData = await response.json();
+            const order = {
+                id: orderData.id,
                 customer: customerInfo,
                 items: cartDetails,
                 total: this.getCartTotal(),
-                reservedTires: reservedTires
-            });
+                status: 'en_attente'
+            };
 
             // Vider le panier
             this.clearCart();

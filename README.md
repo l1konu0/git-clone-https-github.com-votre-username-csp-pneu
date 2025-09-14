@@ -1,22 +1,23 @@
 # CSP Pneu - Site Web
 
-Site web moderne pour CSP Pneu, spécialiste des pneus depuis 1995.
+Site web moderne pour CSP Pneu, spécialiste des pneus depuis 1995, avec gestion de stock en temps réel.
 
 ## 🚀 Fonctionnalités
 
-- **Catalogue de pneus** avec filtres avancés
+- **Catalogue de pneus** avec filtres avancés et stock en temps réel
+- **Système de commande** complet avec panier et validation
+- **Formulaire de contact** avec sauvegarde en base de données
+- **Interface d'administration** pour la gestion des pneus
+- **Gestion d'inventaire** en temps réel avec Supabase
+- **API REST** complète pour toutes les opérations
 - **Design épuré** avec couleurs diffuses et animations fluides
 - **Interface responsive** pour tous les appareils
-- **API moderne** avec Vercel Functions
-- **Base de données** intégrée (PlanetScale MySQL)
-- **Formulaire de contact** fonctionnel
-- **Interface d'administration** pour gérer les pneus
 
 ## 🛠️ Technologies
 
-- **Frontend** : HTML5, CSS3, JavaScript ES6+
-- **Backend** : Vercel Functions (Node.js)
-- **Base de données** : PlanetScale (MySQL)
+- **Frontend** : HTML5, CSS3, JavaScript ES6+, TypeScript
+- **Backend** : Vercel Functions (Node.js + TypeScript)
+- **Base de données** : Supabase (PostgreSQL)
 - **Déploiement** : Vercel
 - **Design** : CSS moderne avec animations
 
@@ -24,8 +25,8 @@ Site web moderne pour CSP Pneu, spécialiste des pneus depuis 1995.
 
 ### Prérequis
 - Node.js 18+
+- Compte Supabase
 - Compte Vercel
-- Compte PlanetScale
 
 ### Installation locale
 
@@ -37,35 +38,51 @@ cd csp-pneu
 # Installer les dépendances
 npm install
 
+# Configurer Supabase (voir SUPABASE_SETUP.md)
+# Créer le fichier .env avec vos clés Supabase
+
 # Démarrer le serveur de développement
 npm run dev
 ```
 
-## 🗄️ Base de données
+## 🗄️ Base de données Supabase
 
-### Structure de la table `pneus`
+### Configuration
+1. Suivre le guide dans `SUPABASE_SETUP.md`
+2. Créer un projet Supabase
+3. Exécuter le script SQL dans `config/supabase_setup.sql`
 
-```sql
-CREATE TABLE pneus (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    marque VARCHAR(100) NOT NULL,
-    modele VARCHAR(100) NOT NULL,
-    dimensions VARCHAR(20) NOT NULL,
-    type ENUM('été', 'hiver', '4saisons') NOT NULL,
-    prix DECIMAL(10,2) NOT NULL,
-    stock INT NOT NULL DEFAULT 0,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+### Variables d'environnement requises
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-### Configuration PlanetScale
+### Structure des tables
+- **pneus** : Catalogue des pneus avec stock
+- **commandes** : Commandes clients
+- **commande_details** : Détails des commandes
+- **messages** : Messages de contact
+- **admins** : Administrateurs
 
-1. Créer un compte sur [PlanetScale](https://planetscale.com)
-2. Créer une nouvelle base de données
-3. Obtenir l'URL de connexion
-4. Configurer les variables d'environnement dans Vercel
+## 🔧 API Endpoints
+
+### Pneus
+- `GET /api/pneus` - Récupérer tous les pneus
+- `POST /api/pneus` - Ajouter un pneu
+- `PUT /api/pneus` - Modifier un pneu
+- `DELETE /api/pneus?id={id}` - Supprimer un pneu
+
+### Commandes
+- `GET /api/commandes` - Récupérer toutes les commandes
+- `POST /api/commandes` - Créer une commande
+
+### Messages
+- `GET /api/messages` - Récupérer tous les messages
+- `POST /api/messages` - Envoyer un message
+- `PUT /api/messages` - Marquer un message comme lu
+- `DELETE /api/messages?id={id}` - Supprimer un message
 
 ## 🚀 Déploiement sur Vercel
 
@@ -87,11 +104,7 @@ git push -u origin main
 
 1. Aller sur [Vercel](https://vercel.com)
 2. Importer le repository GitHub
-3. Configurer les variables d'environnement :
-   - `DB_HOST` : Host de votre base PlanetScale
-   - `DB_USER` : Nom d'utilisateur
-   - `DB_PASSWORD` : Mot de passe
-   - `DB_NAME` : Nom de la base de données
+3. Configurer les variables d'environnement Supabase
 4. Déployer !
 
 ### 3. Configuration des variables d'environnement
@@ -99,25 +112,34 @@ git push -u origin main
 Dans Vercel Dashboard > Settings > Environment Variables :
 
 ```
-DB_HOST=your-planetscale-host
-DB_USER=your-username
-DB_PASSWORD=your-password
-DB_NAME=your-database-name
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 ## 📁 Structure du projet
 
 ```
 csp-pneu/
-├── api/                    # Vercel Functions
-│   ├── pneus.js           # API des pneus
-│   └── contact.js         # API de contact
+├── api/                    # Vercel Functions (TypeScript)
+│   ├── pneus.ts           # API des pneus
+│   ├── commandes.ts       # API des commandes
+│   ├── messages.ts        # API des messages
+│   └── auth/              # API d'authentification
+├── lib/                   # Bibliothèques partagées
+│   └── supabase.ts        # Configuration Supabase
+├── types/                 # Déclarations TypeScript
+│   └── global.d.ts        # Types globaux
+├── config/                # Configuration
+│   ├── supabase_setup.sql # Script de création de la DB
+│   └── database_setup.sql # Ancien script MySQL
 ├── assets/                # Ressources statiques
 │   ├── css/
 │   │   └── style.css      # Styles principaux
 │   └── js/
 │       ├── script.js      # Scripts généraux
 │       ├── catalog.js     # Gestion du catalogue
+│       ├── order-system.js # Système de commande
 │       └── contact.js     # Gestion du contact
 ├── pages/                 # Pages HTML
 │   ├── catalog.html       # Page catalogue
@@ -126,29 +148,20 @@ csp-pneu/
 ├── admin/                 # Interface d'administration
 ├── index.html             # Page d'accueil
 ├── package.json           # Configuration npm
+├── tsconfig.json          # Configuration TypeScript
 ├── vercel.json           # Configuration Vercel
+├── SUPABASE_SETUP.md     # Guide Supabase
 └── README.md             # Documentation
 ```
 
 ## 🎨 Design
 
 Le site utilise un design moderne avec :
-- **Palette de couleurs** : a modifier partir du jaune gris rouge blanc noir j:fbbf24;
+- **Palette de couleurs** : Jaune (#fbbf24), gris, rouge, blanc, noir
 - **Typographie** : Inter + Roboto
 - **Animations** : Transitions fluides et effets de survol
 - **Responsive** : Mobile-first design
 - **Glassmorphism** : Effets de transparence et flou
-
-## 🔧 API Endpoints
-
-### GET /api/pneus
-Récupère la liste des pneus
-
-### POST /api/pneus
-Ajoute un nouveau pneu (admin)
-
-### POST /api/contact
-Envoie un message de contact
 
 ## 📱 Responsive Design
 
@@ -161,15 +174,48 @@ Le site est entièrement responsive avec :
 
 - **Filtres en temps réel** sur le catalogue
 - **Animations d'apparition** au scroll
-- **Validation de formulaires** côté client
+- **Validation de formulaires** côté client et serveur
 - **Gestion d'erreurs** robuste
 - **Loading states** pour une meilleure UX
+- **Stock en temps réel** avec Supabase
+- **Système de commande** complet
+- **Sécurité** avec Row Level Security
+
+## 🔒 Sécurité
+
+- **RLS (Row Level Security)** activé sur toutes les tables
+- **Validation** des données côté serveur
+- **CORS** configuré pour les requêtes cross-origin
+- **Variables d'environnement** pour les clés sensibles
+
+## 📊 Monitoring
+
+- **Logs Vercel** : Surveillance des erreurs API
+- **Dashboard Supabase** : Monitoring de la base de données
+- **Analytics** : Suivi des performances
+
+## 🛠️ Développement
+
+### Scripts disponibles
+- `npm run dev` - Serveur de développement
+- `npm run build` - Compilation TypeScript
+- `npm run type-check` - Vérification des types
+- `npm run start` - Démarrer en production
+
+### Workflow de développement
+1. Créer une branche feature
+2. Développer et tester localement
+3. Pousser et créer une PR
+4. Merge vers main pour déploiement
 
 ## 📞 Support
 
 Pour toute question ou problème :
-- Email : contact tarek
-- Téléphone : 
+1. Vérifier la documentation Supabase
+2. Consulter les logs Vercel
+3. Vérifier les variables d'environnement
+4. Tester localement avec `npm run dev`
+
 ## 📄 Licence
 
 MIT License - Voir le fichier LICENSE pour plus de détails.

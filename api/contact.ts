@@ -5,7 +5,7 @@ interface ContactData {
   email: string;
   telephone?: string;
   message: string;
-  pneuId?: number;
+  pneuId?: number | null;
 }
 
 interface VercelRequest {

@@ -21,7 +21,9 @@
   "include": [
     "api/**/*",
     "admin/**/*",
-    "assets/js/**/*"
+    "assets/js/**/*",
+    "lib/**/*",
+    "types/**/*"
   ],
   "exclude": [
     "node_modules",

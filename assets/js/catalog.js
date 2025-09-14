@@ -13,12 +13,6 @@ class CatalogManager {
     }
 
     async loadProducts() {
-        // Toujours utiliser les données de démonstration pour le moment
-        this.products = this.getDemoProducts();
-        this.filteredProducts = [...this.products];
-        
-        // Code pour l'API (désactivé temporairement)
-        /*
         try {
             const response = await fetch('/api/pneus');
             if (!response.ok) {
@@ -26,13 +20,14 @@ class CatalogManager {
             }
             this.products = await response.json();
             this.filteredProducts = [...this.products];
+            console.log('Produits chargés depuis Supabase:', this.products.length);
         } catch (error) {
-            console.error('Erreur:', error);
+            console.error('Erreur API:', error);
             // Données de démonstration en cas d'erreur
             this.products = this.getDemoProducts();
             this.filteredProducts = [...this.products];
+            console.log('Utilisation des données de démonstration');
         }
-        */
     }
 
     getDemoProducts() {

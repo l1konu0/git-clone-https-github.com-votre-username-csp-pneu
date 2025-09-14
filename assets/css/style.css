@@ -3739,7 +3739,7 @@ body {
 
 @keyframes particleFloat {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(100vh);
         opacity: 0;
     }
     10% {
@@ -3749,7 +3749,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translateY(-100px) rotate(360deg);
+        transform: translateY(-100px);
         opacity: 0;
     }
 }
@@ -3853,7 +3853,7 @@ body {
 }
 
 .brand-card:hover .brand-logo {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
     box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
 }
 
@@ -5991,8 +5991,8 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 @keyframes textShine {
@@ -6045,7 +6045,7 @@ body {
 
 @keyframes particleFloat {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(100vh);
         opacity: 0;
     }
     10% {
@@ -6055,7 +6055,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translateY(-100px) rotate(360deg);
+        transform: translateY(-100px);
         opacity: 0;
     }
 }
