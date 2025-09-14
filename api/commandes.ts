@@ -27,8 +27,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     if (req.method === 'GET') {
-      // Récupérer les commandes depuis Supabase
-      const { data: commandes, error } = await supabase
+      // Récupérer l'email de l'utilisateur depuis le token d'authentification
+      const authHeader = req.headers.authorization;
+      let userEmail = null;
+
+      if (authHeader) {
+        try {
+          const token = authHeader.replace('Bearer ', '');
+          const verifyResponse = await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/auth/verify`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ token })
+          });
+
+          if (verifyResponse.ok) {
+            const userData = await verifyResponse.json();
+            userEmail = userData.user?.email;
+          }
+        } catch (error) {
+          console.log('Token invalide ou erreur de vérification');
+        }
+      }
+
+      // Construire la requête avec ou sans filtre
+      let query = supabase
         .from('commandes')
         .select(`
           *,
@@ -42,6 +67,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           )
         `)
         .order('created_at', { ascending: false });
+
+      // Si un utilisateur est connecté, filtrer par son email
+      if (userEmail) {
+        query = query.eq('email', userEmail);
+      }
+
+      const { data: commandes, error } = await query;
 
       if (error) {
         console.error('Erreur Supabase:', error);
